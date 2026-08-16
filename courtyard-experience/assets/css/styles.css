@@ -163,7 +163,7 @@ ul, ol {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR (Joakim 3-Point Layout & Signature Brand Mark)
+   NAVIGATION BAR (1:1 Joakim Luxury 3-Point Layout)
    ========================================================================== */
 .nav-wrapper {
   position: fixed;
@@ -171,7 +171,7 @@ ul, ol {
   left: 0;
   width: 100%;
   z-index: 900;
-  padding: 1.5rem var(--container-pad);
+  padding: 1.75rem var(--container-pad);
   pointer-events: none;
   color: #FFFFFF;
   transition: transform var(--transition-med), background-color var(--transition-med), color var(--transition-med), padding var(--transition-med);
@@ -182,13 +182,13 @@ ul, ol {
 }
 
 .nav-wrapper.nav-scrolled {
-  background-color: rgba(245, 241, 232, 0.92);
+  background-color: rgba(245, 241, 232, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
   color: var(--color-text-primary);
-  padding-top: 0.85rem;
-  padding-bottom: 0.85rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .nav-container {
@@ -207,29 +207,22 @@ ul, ol {
   justify-content: flex-start;
 }
 
-.nav-book-link {
+.nav-reserve-link {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
   cursor: pointer;
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-}
-
-.nav-link-subline {
-  height: 1px;
-  width: 100%;
-  background-color: currentColor;
-  opacity: 0.4;
-  margin-top: 2px;
+  display: inline-block;
   transition: opacity var(--transition-fast);
 }
 
-.nav-book-link:hover .nav-link-subline {
-  opacity: 1;
+.nav-reserve-link:hover {
+  opacity: 0.75;
 }
 
 .nav-brand-center {
@@ -240,18 +233,16 @@ ul, ol {
   color: inherit;
 }
 
-.nav-signature-logo {
-  font-family: var(--font-script);
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  font-weight: 400;
+.nav-signature-svg {
+  height: 48px;
+  width: auto;
+  max-width: 260px;
+  display: block;
   color: inherit;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  user-select: none;
-  transition: transform 0.4s var(--ease-out-expo), color 0.3s ease;
+  transition: transform 0.4s var(--ease-out-expo);
 }
 
-.nav-signature-logo:hover {
+.nav-brand-center:hover .nav-signature-svg {
   transform: scale(1.05);
 }
 
@@ -261,40 +252,26 @@ ul, ol {
   justify-content: flex-end;
 }
 
-.nav-menu-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
+.nav-menu-plain {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: inherit;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
   cursor: pointer;
-  padding: 0.4rem 0.6rem;
-  background: transparent;
-  border: none;
-  transition: opacity var(--transition-fast), transform var(--transition-med);
+  padding: 0.4rem 0;
+  transition: opacity var(--transition-fast);
 }
 
-.nav-menu-btn:hover {
-  opacity: 0.8;
-  transform: scale(1.04);
-}
-
-.burger-icon {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 18px;
-}
-
-.burger-icon span {
-  display: block;
-  width: 100%;
-  height: 1.5px;
-  background-color: currentColor;
-  transition: transform var(--transition-fast);
+.nav-menu-plain:hover {
+  opacity: 0.75;
 }
 
 /* SplitText Hover Effect (.hover-text) from Joakim */

@@ -183,12 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     // 2. Navigation items graceful drop
-    heroTl.from(".nav-left, .nav-brand-center, .nav-right", {
-      opacity: 0,
-      y: -20,
-      duration: 1,
-      stagger: 0.1
-    }, 0.2);
+    heroTl.fromTo(".nav-left, .nav-brand-center, .nav-right", 
+      { opacity: 0, y: -20 },
+      { opacity: 1, y: 0, duration: 1, stagger: 0.1 }, 
+      0.2
+    );
 
     // 3. Left Column: Dossier Typewriter Animation
     const typewriterEl = document.querySelector('[data-typewriter-text]');

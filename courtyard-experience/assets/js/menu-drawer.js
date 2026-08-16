@@ -4,7 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const burgerBtn = document.querySelector('.burger-menu');
+  const menuBtns = document.querySelectorAll('.nav-menu-plain, .burger-menu');
   const closeBtn = document.querySelector('.burger-menu-close');
   const menuFullscreen = document.querySelector('.menu-fullscreen');
 
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.remove('no-scroll');
   }
 
-  if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
+  menuBtns.forEach(btn => btn.addEventListener('click', openMenu));
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
   // Close on Escape key
