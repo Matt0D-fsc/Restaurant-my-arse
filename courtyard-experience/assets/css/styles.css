@@ -569,7 +569,7 @@ ul, ol {
 }
 
 /* ==========================================================================
-   PAGE PRELOADER
+   PAGE PRELOADER (Light Luxury Theme)
    ========================================================================== */
 .preloader {
   position: fixed;
@@ -577,8 +577,8 @@ ul, ol {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
+  background-color: #FFFFFF;
+  color: var(--color-text-primary);
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -596,7 +596,7 @@ ul, ol {
   gap: 1.5rem;
 }
 
-/* Preloader Clean Luxury Signature Stage (Pure White & Minimalist) */
+/* Preloader Clean Luxury Signature Stage (Black Logo on White) */
 .preloader-logo-stage {
   position: relative;
   display: flex;
@@ -612,7 +612,7 @@ ul, ol {
 .preloader-signature-text {
   font-family: var(--font-script);
   font-size: var(--preloader-logo-size);
-  color: #FFFFFF;
+  color: #12100E;
   line-height: 1.1;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -624,13 +624,17 @@ ul, ol {
   font-size: 0.8rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--color-accent-gold);
+  color: var(--color-accent-terracotta);
+}
+
+.preloader-location {
+  color: var(--color-text-secondary) !important;
 }
 
 .preloader-bar-wrap {
   width: 180px;
   height: 2px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(18, 16, 14, 0.1);
   overflow: hidden;
   margin-top: 1rem;
 }
@@ -638,7 +642,7 @@ ul, ol {
 .preloader-bar {
   width: 0%;
   height: 100%;
-  background-color: var(--color-accent-gold);
+  background-color: #12100E;
   transition: width 0.1s linear;
 }
 
