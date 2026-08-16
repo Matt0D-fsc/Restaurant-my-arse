@@ -596,57 +596,27 @@ ul, ol {
   gap: 1.5rem;
 }
 
-/* Preloader Grand Signature Stage (100% Font Parity & Ink Flow) */
+/* Preloader Clean Luxury Signature Stage (Pure White & Minimalist) */
 .preloader-logo-stage {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0.8rem 0;
   user-select: none;
   overflow: visible;
-}
-
-.preloader-signature-base {
-  font-family: var(--font-script);
-  font-size: var(--preloader-logo-size);
-  color: rgba(197, 168, 128, 0.14);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  display: block;
-}
-
-.preloader-signature-active {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  max-width: 600px;
+}
+
+.preloader-signature-text {
   font-family: var(--font-script);
   font-size: var(--preloader-logo-size);
-  color: var(--color-accent-gold);
-  line-height: 1;
+  color: #FFFFFF;
+  line-height: 1.1;
   letter-spacing: 0.02em;
   white-space: nowrap;
   display: block;
-  clip-path: inset(0 100% 0 0);
-  filter: drop-shadow(0 0 18px rgba(197, 168, 128, 0.55));
-  will-change: clip-path;
-}
-
-.preloader-ink-nib {
-  position: absolute;
-  top: 52%;
-  left: 0%;
-  width: 8px;
-  height: 8px;
-  background: #FFFFFF;
-  border-radius: 50%;
-  box-shadow: 0 0 12px 3px var(--color-accent-gold), 0 0 22px 6px rgba(255, 255, 255, 0.9);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  z-index: 10;
 }
 
 .preloader-tagline {

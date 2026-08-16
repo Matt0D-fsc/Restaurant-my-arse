@@ -4,36 +4,19 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. PRELOADER & INK-FLOW SIGNATURE WRITE-ON CONTROLLER
+  // 1. PRELOADER CONTROLLER (Lottie / Animation Ready)
   const preloader = document.querySelector('.preloader');
   const preloaderBar = document.querySelector('.preloader-bar');
-  const signatureActive = document.querySelector('.preloader-signature-active');
-  const inkNib = document.querySelector('.preloader-ink-nib');
-
-  function updateSignatureProgress(progressPercent) {
-    if (signatureActive) {
-      signatureActive.style.clipPath = `inset(0 ${Math.max(0, 100 - progressPercent)}% 0 0)`;
-    }
-    if (inkNib) {
-      if (progressPercent > 2 && progressPercent < 98) {
-        inkNib.style.opacity = '1';
-        inkNib.style.left = `${progressPercent}%`;
-      } else if (progressPercent >= 98) {
-        inkNib.style.opacity = '0';
-      }
-    }
-  }
 
   if (preloader) {
     document.body.classList.add('no-scroll');
     let progress = 0;
     const interval = setInterval(() => {
-      progress += Math.random() * 8 + 5;
+      progress += Math.random() * 12 + 8;
       if (progress >= 100) {
         progress = 100;
         clearInterval(interval);
         if (preloaderBar) preloaderBar.style.width = '100%';
-        updateSignatureProgress(100);
 
         setTimeout(() => {
           gsap.to(preloader, {
@@ -45,10 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
               initHeroAnimations();
             }
           });
-        }, 500);
+        }, 350);
       } else {
         if (preloaderBar) preloaderBar.style.width = `${progress}%`;
-        updateSignatureProgress(progress);
       }
     }, 70);
   } else {
