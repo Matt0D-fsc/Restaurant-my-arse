@@ -166,35 +166,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. GSAP HERO & SCROLLTRIGGER REVEALS
+  // 5. GSAP HERO VISUAL STORYTELLING ENTRANCE (Joakim Choreography)
   function initHeroAnimations() {
     if (typeof gsap === 'undefined') return;
 
-    const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    heroTl.from(".hero-meta-row", {
+    // 1. Background image slow scale-in & atmospheric settling
+    heroTl.fromTo(".hero-bg-img", 
+      { scale: 1.12, filter: "brightness(0.4) saturate(1.3)" },
+      { scale: 1.05, filter: "brightness(0.68) saturate(1.15)", duration: 1.8, ease: "power2.out" },
+      0
+    );
+
+    // 2. Navigation items graceful drop
+    heroTl.from(".nav-brand, .nav-links-desktop, .nav-actions", {
       opacity: 0,
       y: -20,
-      duration: 1
-    }, 0.1)
-    .from(".hero-headline", {
-      opacity: 0,
-      y: 50,
-      duration: 1.2,
+      duration: 1,
       stagger: 0.1
-    }, 0.2)
-    .from(".hero-subhead-row", {
-      opacity: 0,
-      y: 30,
-      duration: 1
-    }, 0.4)
-    .from(".hero-card", {
-      opacity: 0,
-      y: 60,
-      scale: 0.96,
-      duration: 1.2,
-      stagger: 0.15
-    }, 0.5);
+    }, 0.2);
+
+    // 3. Left Column: Dossier Typewriter Animation
+    const typewriterEl = document.querySelector('[data-typewriter-text]');
+    if (typewriterEl) {
+      const fullText = typewriterEl.getAttribute('data-typewriter-text') || '';
+      typewriterEl.textContent = '';
+      
+      [...fullText].forEach(char => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.style.opacity = '0';
+        typewriterEl.appendChild(span);
+      });
+
+      const charSpans = typewriterEl.querySelectorAll('span');
+      heroTl.to(charSpans, {
+        opacity: 1,
+        duration: 0.01,
+        stagger: 0.015,
+        ease: "none"
+      }, 0.4);
+    }
+
+    // 4. Center Column: Monumental Title Masked Line Reveals
+    heroTl.to(".reveal-line", {
+      yPercent: 0,
+      duration: 1.3,
+      stagger: 0.15,
+      ease: "power4.out"
+    }, 0.7);
+
+    // 5. Right Column: Blur-to-Focus Drift
+    heroTl.fromTo(".hero-blur-text",
+      { x: 35, opacity: 0, filter: "blur(10px)" },
+      { x: 0, opacity: 1, filter: "blur(0px)", duration: 1.2, ease: "power3.out" },
+      1.1
+    );
+
+    // 6. Center CTA: Fade up & Underline drawing
+    heroTl.fromTo(".hero-cta-box",
+      { y: 25, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" },
+      1.4
+    );
+
+    heroTl.to(".hero-cta-underline", {
+      width: "100%",
+      duration: 1.1,
+      ease: "power2.inOut"
+    }, 1.5);
 
     // ScrollTrigger Pinned & Stagger Sections
     if (typeof ScrollTrigger !== 'undefined') {
@@ -236,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power3.out"
       });
 
-        gsap.from(".booking-box", {
+      gsap.from(".booking-box", {
         scrollTrigger: {
           trigger: ".section-booking",
           start: "top 80%",

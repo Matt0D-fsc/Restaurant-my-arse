@@ -138,47 +138,45 @@
   <!-- MAIN WRAPPER -->
   <main id="main-content">
 
-    <!-- HERO SECTION -->
-    <section class="section-hero">
-      <div class="container">
-        <div class="hero-header">
-          <div class="hero-meta-row">
-            <span class="tag-mono">Dhanmondi &bull; Dhaka</span>
-            <span class="tag-mono">Fine Casual &bull; Art Gallery</span>
-            <span class="tag-mono">Est. 2021</span>
-          </div>
+    <!-- FULLSCREEN VISUAL STORYTELLING HERO (Joakim Experience) -->
+    <section class="section-hero" data-scroll-zoom>
+      <!-- Fullscreen Background Image & Overlay -->
+      <div class="hero-bg-container">
+        <img src="assets/images/chef-plating.webp" alt="Artisanal Culinary Plating" class="hero-bg-img">
+        <div class="hero-bg-overlay"></div>
+      </div>
 
-          <div class="hero-headline">
-            <h1 class="heading-display">
-              A sanctuary of <span class="serif-italic">food, art</span> & luminescence.
-            </h1>
-          </div>
-
-          <div class="hero-subhead-row">
-            <p class="hero-desc">
-              Natural lighting brings an ethereal glow to our open dining room, landscaped glass patio, and sculpture garden. Experience reimagined Bengali street delicacies, exotic Asian noodle bowls, authentic tandoor kebabs, and handcrafted patisserie.
-            </p>
-            <div style="display: flex; gap: 1rem; justify-content: flex-end; align-items: center;">
-              <a href="menu.html" class="btn-pill">
-                <span>Explore Menu</span>
-              </a>
-              <a href="#reserve" class="btn-pill btn-pill-dark">
-                <span>Book a Table &rarr;</span>
-              </a>
-            </div>
+      <!-- 3-Column Storytelling Hero Content -->
+      <div class="hero-story-container">
+        <!-- Left: Dossier Note with Typewriter Effect -->
+        <div class="hero-story-left">
+          <div class="hero-typewriter-wrap">
+            <span class="hero-typewriter-text" data-typewriter-text="FINE CASUAL & ART, THE COURTYARD IMAGINES AND CRAFTS BESPOKE CULINARY EXPERIENCES, IN DHANMONDI, DHAKA."></span>
+            <span class="typewriter-cursor"></span>
           </div>
         </div>
 
-        <!-- HERO VISUAL COMPOSITION (Parity with Joakim Grid) -->
-        <div class="hero-visual-grid">
-          <div class="hero-card hero-card-1" data-scroll-zoom>
-            <img src="assets/images/courtyard-skylight.jpg" alt="The Courtyard Skylight and Daylight Dining">
+        <!-- Center: Monumental Headline with Masked Line Reveal & CTA -->
+        <div class="hero-story-center">
+          <div class="hero-center-headline">
+            <div class="reveal-line-wrap"><h1 class="reveal-line">AN ETHEREAL</h1></div>
+            <div class="reveal-line-wrap"><h1 class="reveal-line">GASTRONOMIC SANCTUARY,</h1></div>
+            <div class="reveal-line-wrap"><h1 class="reveal-line serif-italic">FOR SOUL & ADDA.</h1></div>
           </div>
-          <div class="hero-card hero-card-2" data-scroll-zoom>
-            <img src="assets/images/chef-plating.webp" alt="Artisanal Culinary Plating">
+
+          <div class="hero-cta-box">
+            <a href="#gallery" class="hero-cta-link hover-text">
+              <span class="top">Découvrir L'Expérience &rarr;</span>
+              <span class="bottom">Explore The Sanctuary &rarr;</span>
+            </a>
+            <div class="hero-cta-underline"></div>
           </div>
-          <div class="hero-card hero-card-3" data-scroll-zoom>
-            <img src="assets/images/patio-rock-garden.jpg" alt="Glass-Covered Patio & Sculpture Garden">
+        </div>
+
+        <!-- Right: Atmosphere Note with Blur-to-Focus Drift -->
+        <div class="hero-story-right">
+          <div class="hero-blur-text">
+            EVERY MOMENT IS CONCEIVED AS AN UNHURRIED SANCTUARY, WHERE REIMAGINED GASTRONOMY MEETS NATURAL LUMINESCENCE.
           </div>
         </div>
       </div>
