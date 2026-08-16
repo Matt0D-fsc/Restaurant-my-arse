@@ -4,54 +4,36 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. PRELOADER & REALTIME HANDWRITTEN SIGNATURE CONTROLLER
+  // 1. PRELOADER & INK-FLOW SIGNATURE WRITE-ON CONTROLLER
   const preloader = document.querySelector('.preloader');
   const preloaderBar = document.querySelector('.preloader-bar');
-  const strokePaths = document.querySelectorAll('.signature-strokes path');
-  const fillText = document.querySelector('.signature-fill-text');
+  const signatureActive = document.querySelector('.preloader-signature-active');
+  const inkNib = document.querySelector('.preloader-ink-nib');
 
-  // Initialize SVG stroke paths for real-time write-on effect
-  const pathData = [];
-  let totalStrokeLength = 0;
-
-  strokePaths.forEach((path) => {
-    const len = path.getTotalLength ? path.getTotalLength() : 100;
-    path.style.strokeDasharray = len;
-    path.style.strokeDashoffset = len;
-    pathData.push({ path, length: len, startOffset: totalStrokeLength });
-    totalStrokeLength += len;
-  });
-
-  function updateSignatureProgress(progressRatio) {
-    const currentDrawnLength = progressRatio * totalStrokeLength;
-
-    pathData.forEach(({ path, length, startOffset }) => {
-      if (currentDrawnLength <= startOffset) {
-        path.style.strokeDashoffset = length;
-      } else if (currentDrawnLength >= startOffset + length) {
-        path.style.strokeDashoffset = 0;
-      } else {
-        const pathRatio = (currentDrawnLength - startOffset) / length;
-        path.style.strokeDashoffset = length * (1 - pathRatio);
+  function updateSignatureProgress(progressPercent) {
+    if (signatureActive) {
+      signatureActive.style.clipPath = `inset(0 ${Math.max(0, 100 - progressPercent)}% 0 0)`;
+    }
+    if (inkNib) {
+      if (progressPercent > 2 && progressPercent < 98) {
+        inkNib.style.opacity = '1';
+        inkNib.style.left = `${progressPercent}%`;
+      } else if (progressPercent >= 98) {
+        inkNib.style.opacity = '0';
       }
-    });
+    }
   }
 
   if (preloader) {
     document.body.classList.add('no-scroll');
     let progress = 0;
     const interval = setInterval(() => {
-      progress += Math.random() * 10 + 6;
+      progress += Math.random() * 8 + 5;
       if (progress >= 100) {
         progress = 100;
         clearInterval(interval);
         if (preloaderBar) preloaderBar.style.width = '100%';
-        updateSignatureProgress(1);
-
-        // Soft gold luster fill upon completion
-        if (fillText) {
-          fillText.style.opacity = '1';
-        }
+        updateSignatureProgress(100);
 
         setTimeout(() => {
           gsap.to(preloader, {
@@ -63,13 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
               initHeroAnimations();
             }
           });
-        }, 550);
+        }, 500);
       } else {
-        const ratio = progress / 100;
         if (preloaderBar) preloaderBar.style.width = `${progress}%`;
-        updateSignatureProgress(ratio);
+        updateSignatureProgress(progress);
       }
-    }, 80);
+    }, 70);
   } else {
     initHeroAnimations();
   }

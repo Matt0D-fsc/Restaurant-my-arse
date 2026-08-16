@@ -36,6 +36,9 @@
   --font-mono: 'Geist Mono', monospace;
   --font-script: 'Alex Brush', 'Pinyon Script', cursive;
 
+  /* Preloader Logo Scaling (Adjustable) */
+  --preloader-logo-size: clamp(3.4rem, 7.5vw, 6rem);
+
   /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -593,38 +596,57 @@ ul, ol {
   gap: 1.5rem;
 }
 
-.preloader-signature-wrap {
-  width: 100%;
-  max-width: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0.5rem 0;
-  padding: 0 1rem;
-}
-
-.preloader-signature-svg {
-  width: 100%;
-  height: auto;
-  max-height: 130px;
-  overflow: visible;
-  filter: drop-shadow(0 0 14px rgba(197, 168, 128, 0.3));
-}
-
-.signature-strokes path {
-  fill: none;
-  stroke: var(--color-accent-gold);
-  stroke-width: 2.8px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  will-change: stroke-dashoffset;
-}
-
-.signature-fill-text {
-  opacity: 0;
-  fill: var(--color-accent-gold);
-  transition: opacity 0.5s ease;
+/* Preloader Grand Signature Stage (100% Font Parity & Ink Flow) */
+.preloader-logo-stage {
+  position: relative;
+  display: inline-block;
+  margin: 0.8rem 0;
   user-select: none;
+  overflow: visible;
+}
+
+.preloader-signature-base {
+  font-family: var(--font-script);
+  font-size: var(--preloader-logo-size);
+  color: rgba(197, 168, 128, 0.14);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: block;
+}
+
+.preloader-signature-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-script);
+  font-size: var(--preloader-logo-size);
+  color: var(--color-accent-gold);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: block;
+  clip-path: inset(0 100% 0 0);
+  filter: drop-shadow(0 0 18px rgba(197, 168, 128, 0.55));
+  will-change: clip-path;
+}
+
+.preloader-ink-nib {
+  position: absolute;
+  top: 52%;
+  left: 0%;
+  width: 8px;
+  height: 8px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 12px 3px var(--color-accent-gold), 0 0 22px 6px rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 10;
 }
 
 .preloader-tagline {
