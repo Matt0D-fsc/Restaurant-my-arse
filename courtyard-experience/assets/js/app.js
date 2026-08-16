@@ -170,6 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function initHeroAnimations() {
     if (typeof gsap === 'undefined') return;
 
+    // Explicitly set initial states
+    gsap.set(".reveal-line", { yPercent: 120, opacity: 0 });
+
     const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     // 1. Background image slow scale-in & atmospheric settling
@@ -180,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     // 2. Navigation items graceful drop
-    heroTl.from(".nav-brand, .nav-links-desktop, .nav-actions", {
+    heroTl.from(".nav-left, .nav-brand-center, .nav-right", {
       opacity: 0,
       y: -20,
       duration: 1,
@@ -212,10 +215,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Center Column: Monumental Title Masked Line Reveals
     heroTl.to(".reveal-line", {
       yPercent: 0,
+      opacity: 1,
       duration: 1.3,
       stagger: 0.15,
       ease: "power4.out"
-    }, 0.7);
+    }, 0.6);
 
     // 5. Right Column: Blur-to-Focus Drift
     heroTl.fromTo(".hero-blur-text",

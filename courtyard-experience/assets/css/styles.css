@@ -3,7 +3,7 @@
    Inspired by latabledejoakim.fr with bespoke aesthetic architecture
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Geist+Mono:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Pinyon+Script&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   /* Color Tokens */
@@ -34,6 +34,7 @@
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Geist Mono', monospace;
+  --font-script: 'Alex Brush', 'Pinyon Script', cursive;
 
   /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -162,7 +163,7 @@ ul, ol {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR
+   NAVIGATION BAR (Joakim 3-Point Layout & Signature Brand Mark)
    ========================================================================== */
 .nav-wrapper {
   position: fixed;
@@ -170,9 +171,10 @@ ul, ol {
   left: 0;
   width: 100%;
   z-index: 900;
-  padding: 1.25rem var(--container-pad);
+  padding: 1.5rem var(--container-pad);
   pointer-events: none;
-  transition: transform var(--transition-med), background-color var(--transition-med);
+  color: #FFFFFF;
+  transition: transform var(--transition-med), background-color var(--transition-med), color var(--transition-med), padding var(--transition-med);
 }
 
 .nav-wrapper.nav-hidden {
@@ -180,54 +182,119 @@ ul, ol {
 }
 
 .nav-wrapper.nav-scrolled {
-  background-color: rgba(245, 241, 232, 0.88);
+  background-color: rgba(245, 241, 232, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
-  padding-top: 0.9rem;
-  padding-bottom: 0.9rem;
+  color: var(--color-text-primary);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
 }
 
 .nav-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+  width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
   pointer-events: auto;
 }
 
-.nav-brand {
+.nav-left {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-book-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.nav-link-subline {
+  height: 1px;
+  width: 100%;
+  background-color: currentColor;
+  opacity: 0.4;
+  margin-top: 2px;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-book-link:hover .nav-link-subline {
+  opacity: 1;
+}
+
+.nav-brand-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-signature-logo {
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 400;
+  color: inherit;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  user-select: none;
+  transition: transform 0.4s var(--ease-out-expo), color 0.3s ease;
+}
+
+.nav-signature-logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-menu-btn {
+  display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-}
-
-.nav-logo-text {
-  font-family: var(--font-serif);
-  font-size: 1.75rem;
-  letter-spacing: -0.01em;
-  line-height: 1;
-}
-
-.nav-logo-sub {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: inherit;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  background: transparent;
+  border: none;
+  transition: opacity var(--transition-fast), transform var(--transition-med);
 }
 
-.nav-links-desktop {
+.nav-menu-btn:hover {
+  opacity: 0.8;
+  transform: scale(1.04);
+}
+
+.burger-icon {
   display: flex;
-  align-items: center;
-  gap: 2.25rem;
+  flex-direction: column;
+  gap: 4px;
+  width: 18px;
 }
 
-@media (max-width: 991px) {
-  .nav-links-desktop {
-    display: none;
-  }
+.burger-icon span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: transform var(--transition-fast);
 }
 
 /* SplitText Hover Effect (.hover-text) from Joakim */
@@ -254,6 +321,10 @@ ul, ol {
   top: 0;
   left: 0;
   color: var(--color-accent-terracotta);
+}
+
+.nav-wrapper:not(.nav-scrolled) .hover-text .bottom {
+  color: var(--color-accent-gold);
 }
 
 .hover-text .char {
@@ -699,17 +770,20 @@ ul, ol {
 
 .hero-center-headline {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 6.2vw, 6rem);
-  line-height: 0.92;
+  font-size: clamp(2.6rem, 5.2vw, 5.2rem);
+  line-height: 0.95;
   text-transform: uppercase;
   font-weight: 400;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .reveal-line-wrap {
   overflow: hidden;
   display: block;
+  padding: 0.05em 0;
 }
 
 .reveal-line {
@@ -719,12 +793,12 @@ ul, ol {
   line-height: inherit;
   font-weight: inherit;
   letter-spacing: inherit;
-  transform: translateY(120%);
-  will-change: transform;
+  color: #FFFFFF;
+  will-change: transform, opacity;
 }
 
 .hero-cta-box {
-  margin-top: clamp(2rem, 4vh, 3.5rem);
+  margin-top: clamp(1.5rem, 3vh, 2.5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
