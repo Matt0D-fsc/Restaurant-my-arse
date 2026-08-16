@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Courtyard at Park Heights | Fine Casual, Art & Gastronomy</title>
+  <meta name="description" content="A sanctuary of culinary artistry and tranquility in Dhanmondi, Dhaka. Reimagined Bengali classics, fusion Dim Sum, kebabs, and landscaped art gallery patio.">
+  <link rel="shortcut icon" href="assets/images/courtyard-logo.png" type="image/x-icon">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <!-- GSAP & Lenis CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+  <!-- PAGE PRELOADER -->
+  <div class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-tagline">FOOD &bull; ART &bull; PASSION</div>
+      <h1 class="preloader-brand">THE COURTYARD</h1>
+      <div class="tag-mono" style="color: rgba(255,255,255,0.6);">PARK HEIGHTS &bull; DHANMONDI</div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIXED NAVIGATION -->
+  <header class="nav-wrapper">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/courtyard-logo.png" alt="The Courtyard Logo" style="height: 38px; width: auto; filter: invert(0.15);">
+        <div>
+          <div class="nav-logo-text">The Courtyard</div>
+          <div class="nav-logo-sub">Park Heights &bull; Dhaka</div>
+        </div>
+      </a>
+
+      <!-- Navigation Links with SplitText Character Hover -->
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="hover-text">
+          <span class="top">Home</span>
+          <span class="bottom">Home</span>
+        </a>
+        <a href="about.html" class="hover-text">
+          <span class="top">The Story</span>
+          <span class="bottom">The Story</span>
+        </a>
+        <a href="menu.html" class="hover-text">
+          <span class="top">Culinary Menu</span>
+          <span class="bottom">Culinary Menu</span>
+        </a>
+        <a href="#gallery" class="hover-text">
+          <span class="top">The Sanctuary</span>
+          <span class="bottom">The Sanctuary</span>
+        </a>
+        <a href="contact.html" class="hover-text">
+          <span class="top">Private Events</span>
+          <span class="bottom">Private Events</span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#reserve" class="btn-pill btn-pill-dark hide-mobile">
+          <span>Reserve Table</span>
+        </a>
+        <button class="burger-menu" aria-label="Open Navigation Menu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- FULLSCREEN DYNAMIC MENU DRAWER -->
+  <div class="menu-fullscreen">
+    <!-- Dynamic Background Image Crossfaders -->
+    <div class="menu-bg-images">
+      <img src="assets/images/ambiance-patio.webp" alt="" class="menu-bg-img img-cover-base">
+      <img src="assets/images/patio-rock-garden.jpg" alt="" class="menu-bg-img img-cover-exp">
+      <img src="assets/images/culinary-detail.webp" alt="" class="menu-bg-img img-cover-menu">
+      <img src="assets/images/courtyard-skylight.jpg" alt="" class="menu-bg-img img-cover-gallery">
+      <img src="assets/images/table-service.webp" alt="" class="menu-bg-img img-cover-contact">
+    </div>
+    <div class="menu-bg-overlay"></div>
+
+    <div class="menu-fullscreen-content">
+      <div class="menu-header">
+        <div class="menu-header-logo">The Courtyard</div>
+        <button class="burger-menu-close">
+          <span>Close &times;</span>
+        </button>
+      </div>
+
+      <div class="menu-nav-links">
+        <a href="about.html" class="menu-nav-item menu-link-exp">
+          <span class="menu-nav-num">01</span>
+          <span class="menu-nav-title">The Sanctuary & Patio</span>
+        </a>
+        <a href="menu.html" class="menu-nav-item menu-link-menu">
+          <span class="menu-nav-num">02</span>
+          <span class="menu-nav-title">Culinary Catalog</span>
+        </a>
+        <a href="#gallery" class="menu-nav-item menu-link-gallery">
+          <span class="menu-nav-num">03</span>
+          <span class="menu-nav-title">Art Gallery & Architecture</span>
+        </a>
+        <a href="contact.html" class="menu-nav-item menu-link-contact">
+          <span class="menu-nav-num">04</span>
+          <span class="menu-nav-title">Reservations & Concierge</span>
+        </a>
+      </div>
+
+      <div class="menu-footer">
+        <div>
+          <div>Park Heights, Dhanmondi, Dhaka, Bangladesh</div>
+          <div style="margin-top: 0.25rem;">Sun–Thu 12PM–11PM | Fri–Sat 9AM–11PM</div>
+        </div>
+        <div>
+          <div>Phone: +88 0131 213 5588</div>
+          <div>Email: info@thecourtyard.com.bd</div>
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener">Instagram &rarr;</a>
+          <a href="https://www.facebook.com/TheCourtyardatParkHeights" target="_blank" rel="noopener">Facebook &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN WRAPPER -->
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="section-hero">
+      <div class="container">
+        <div class="hero-header">
+          <div class="hero-meta-row">
+            <span class="tag-mono">Dhanmondi &bull; Dhaka</span>
+            <span class="tag-mono">Fine Casual &bull; Art Gallery</span>
+            <span class="tag-mono">Est. 2021</span>
+          </div>
+
+          <div class="hero-headline">
+            <h1 class="heading-display">
+              A sanctuary of <span class="serif-italic">food, art</span> & luminescence.
+            </h1>
+          </div>
+
+          <div class="hero-subhead-row">
+            <p class="hero-desc">
+              Natural lighting brings an ethereal glow to our open dining room, landscaped glass patio, and sculpture garden. Experience reimagined Bengali street delicacies, exotic Asian noodle bowls, authentic tandoor kebabs, and handcrafted patisserie.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end; align-items: center;">
+              <a href="menu.html" class="btn-pill">
+                <span>Explore Menu</span>
+              </a>
+              <a href="#reserve" class="btn-pill btn-pill-dark">
+                <span>Book a Table &rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO VISUAL COMPOSITION (Parity with Joakim Grid) -->
+        <div class="hero-visual-grid">
+          <div class="hero-card hero-card-1">
+            <img src="assets/images/courtyard-skylight.jpg" alt="The Courtyard Skylight and Daylight Dining">
+          </div>
+          <div class="hero-card hero-card-2">
+            <img src="assets/images/chef-plating.webp" alt="Artisanal Culinary Plating">
+          </div>
+          <div class="hero-card hero-card-3">
+            <img src="assets/images/patio-rock-garden.jpg" alt="Glass-Covered Patio & Sculpture Garden">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PINNED PHILOSOPHY SECTION (GSAP ScrollTrigger Reveal) -->
+    <section class="section-pinned">
+      <div class="container">
+        <div class="pinned-grid">
+          <div class="pinned-text-wrap">
+            <div class="pinned-badge">ARCHITECTURAL PHILOSOPHY</div>
+            <h2 class="heading-xl">
+              An oasis conceived for <span class="serif-italic">ideas, adda</span>, and natural elegance.
+            </h2>
+            <p style="font-size: 1.15rem; color: rgba(255,255,255,0.75); line-height: 1.8;">
+              Imagine being in a garden with wide open view of the sky, with works of art hanging amidst greenery and flora. The Courtyard doubles as an all-day coffee refuge and an intimate art gallery with a calming rock pool.
+            </p>
+            <div style="display: flex; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem;">
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2.25rem; color: var(--color-accent-gold);">100%</div>
+                <div class="tag-mono" style="color: rgba(255,255,255,0.6);">Natural Light Flow</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2.25rem; color: var(--color-accent-gold);">30+</div>
+                <div class="tag-mono" style="color: rgba(255,255,255,0.6);">Artisanal Creations</div>
+              </div>
+              <div>
+                <div style="font-family: var(--font-serif); font-size: 2.25rem; color: var(--color-accent-gold);">&infin;</div>
+                <div class="tag-mono" style="color: rgba(255,255,255,0.6);">Timeless Adda</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pinned-images-wrap">
+            <img src="assets/images/courtyard-place.jpg" alt="The Courtyard Dining Ambiance">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE DISHES SHOWCASE (SWIPER 11 CAROUSEL) -->
+    <section class="section-showcase">
+      <div class="container">
+        <div class="showcase-header">
+          <div>
+            <span class="tag-mono">GASTRONOMICAL CRAFT</span>
+            <h2 class="heading-lg" style="margin-top: 0.5rem;">
+              Signature <span class="serif-italic">Creations</span>
+            </h2>
+          </div>
+          <div class="showcase-nav-btns">
+            <button class="swiper-nav-btn swiper-nav-prev" aria-label="Previous Slide">&larr;</button>
+            <button class="swiper-nav-btn swiper-nav-next" aria-label="Next Slide">&rarr;</button>
+          </div>
+        </div>
+
+        <!-- Swiper Container -->
+        <div class="swiper">
+          <div class="swiper-wrapper">
+
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <img src="assets/images/kala-bhuna-beef.jpg" alt="Old Dhaka Kala Bhuna">
+              <div class="hover-slider-item">
+                <span class="dish-category">Heritage Reimagined</span>
+                <h3 class="dish-name">Old Dhaka Kala Bhuna</h3>
+                <p class="dish-desc">Slow-caramelized tender beef cuts braised with 18 aromatic spices, served alongside fragrant fragrant Jeera Rice.</p>
+                <div class="dish-price-row">
+                  <span>Chef's Masterpiece</span>
+                  <span>৳ 895</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide">
+              <img src="assets/images/dim-sum-fusion.jpg" alt="Fusion Dim Sum & Prawn Pockets">
+              <div class="hover-slider-item">
+                <span class="dish-category">Small Plates</span>
+                <h3 class="dish-name">Fusion Dim Sum Pockets</h3>
+                <p class="dish-desc">Delicate translucent steamed wrappers filled with wild tiger prawns, lemongrass, and scallion chili drizzle.</p>
+                <div class="dish-price-row">
+                  <span>Artisanal Basket</span>
+                  <span>৳ 545</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <img src="assets/images/kebab-tandoor.jpg" alt="Courtyard Kebab Platter">
+              <div class="hover-slider-item">
+                <span class="dish-category">Live Charcoal</span>
+                <h3 class="dish-name">Royal Kebab Platter</h3>
+                <p class="dish-desc">Charcoal-grilled Chicken Malai kebabs, mutton seekh, and fish tikka with freshly baked clay-oven Tandoor Naan.</p>
+                <div class="dish-price-row">
+                  <span>Platter for Sharing</span>
+                  <span>৳ 1,250</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="swiper-slide">
+              <img src="assets/images/thai-noodle-bowl.jpg" alt="Szechuan & Thai Noodle Bowl">
+              <div class="hover-slider-item">
+                <span class="dish-category">Exotic Asian</span>
+                <h3 class="dish-name">Thai Basil Noodle Bowl</h3>
+                <p class="dish-desc">Wok-tossed hand-pulled noodles with charred garlic, bird's eye chili, sweet basil, and succulent chicken.</p>
+                <div class="dish-price-row">
+                  <span>Comfort Bowl</span>
+                  <span>৳ 620</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="swiper-slide">
+              <img src="assets/images/waffle.jpg" alt="Belgian Waffles & Soft Serve">
+              <div class="hover-slider-item">
+                <span class="dish-category">Dessert Atelier</span>
+                <h3 class="dish-name">Belgian Pearl Sugar Waffle</h3>
+                <p class="dish-desc">Golden crisp Belgian waffle crowned with house pistachio kulfi, wild berry coulis, and chocolate ganache.</p>
+                <div class="dish-price-row">
+                  <span>Sweet Indulgence</span>
+                  <span>৳ 480</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="swiper-slide">
+              <img src="assets/images/artisanal-mocktail.jpg" alt="Courtyard Signature Mocktail">
+              <div class="hover-slider-item">
+                <span class="dish-category">Botanical Bar</span>
+                <h3 class="dish-name">Yuzu & Mint Botanical Cooler</h3>
+                <p class="dish-desc">Clarified citrus infusion with crushed Moroccan mint, lemongrass soda, and sparkling cold-pressed botanicals.</p>
+                <div class="dish-price-row">
+                  <span>Signature Alchemy</span>
+                  <span>৳ 380</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AMBIANCE & SANCTUARY GALLERY -->
+    <section class="section-ambiance" id="gallery">
+      <div class="container">
+        <div style="text-align: center; max-width: 750px; margin: 0 auto;">
+          <span class="tag-mono">SPATIAL HARMONY</span>
+          <h2 class="heading-lg" style="margin-top: 0.5rem;">
+            A coalescence of <span class="serif-italic">space & purpose</span>
+          </h2>
+          <p style="margin-top: 1rem; color: var(--color-text-secondary);">
+            The Courtyard was engineered to transcend the chaotic rhythm of the city. Discover our curated zones designed for creative inspiration and serene gatherings.
+          </p>
+        </div>
+
+        <div class="ambiance-grid">
+          <div class="ambiance-card">
+            <div class="ambiance-img-wrap">
+              <img src="assets/images/courtyard-skylight.jpg" alt="The Skylight Pavilion">
+            </div>
+            <div>
+              <span class="tag-mono">ZONE 01</span>
+              <h3 class="heading-md" style="margin: 0.3rem 0;">The Skylight Lounge</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-secondary);">
+                Expansive overhead glass architecture allowing dynamic daylight transitions from sunlit brunches to intimate candlelit evenings.
+              </p>
+            </div>
+          </div>
+
+          <div class="ambiance-card">
+            <div class="ambiance-img-wrap">
+              <img src="assets/images/patio-rock-garden.jpg" alt="The Rock Garden Patio">
+            </div>
+            <div>
+              <span class="tag-mono">ZONE 02</span>
+              <h3 class="heading-md" style="margin: 0.3rem 0;">The Sculpture Garden</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-secondary);">
+                A landscaped, glass-covered patio featuring fine contemporary sculptures, lush flora, and a zen rock pool.
+              </p>
+            </div>
+          </div>
+
+          <div class="ambiance-card">
+            <div class="ambiance-img-wrap">
+              <img src="assets/images/dining-lounge.jpg" alt="The Main Dining Room">
+            </div>
+            <div>
+              <span class="tag-mono">ZONE 03</span>
+              <h3 class="heading-md" style="margin: 0.3rem 0;">The Atelier & Cafe</h3>
+              <p style="font-size: 0.9rem; color: var(--color-text-secondary);">
+                Spacious seating tailored for deep conversations, book reading, artisanal espresso sipping, and extended gatherings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TABLE RESERVATION & PRIVATE DINING -->
+    <section class="section-booking" id="reserve">
+      <div class="container">
+        <div class="booking-box">
+          <div>
+            <span class="tag-mono" style="color: var(--color-accent-gold);">CONCIERGE & BOOKINGS</span>
+            <h2 class="heading-lg" style="margin: 0.75rem 0 1.5rem;">
+              Reserve your <span class="serif-italic">table</span> or private exhibition.
+            </h2>
+            <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem;">
+              Whether planning a romantic dinner under the skylight, a family tasting banquet, or hosting a curated art event, our concierge ensures an unforgettable experience.
+            </p>
+
+            <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <span class="tag-mono" style="color: rgba(255,255,255,0.5);">LOCATION</span>
+                <div style="font-size: 1rem;">Park Heights, Dhanmondi, Dhaka, Bangladesh</div>
+              </div>
+              <div>
+                <span class="tag-mono" style="color: rgba(255,255,255,0.5);">TELEPHONE</span>
+                <div style="font-size: 1rem; font-family: var(--font-mono); color: var(--color-accent-gold);">+88 0131 213 5588</div>
+              </div>
+              <div>
+                <span class="tag-mono" style="color: rgba(255,255,255,0.5);">HOURS</span>
+                <div style="font-size: 0.95rem;">Sun &ndash; Thu: 12:00 PM &ndash; 11:00 PM<br>Fri &ndash; Sat: 9:00 AM &ndash; 11:00 PM</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reservation Form -->
+          <form id="reservation-form" class="booking-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="book-name">Full Name</label>
+                <input type="text" id="book-name" class="form-control" placeholder="e.g. Sarah Khan" required>
+              </div>
+              <div class="form-group">
+                <label for="book-phone">Phone Number</label>
+                <input type="tel" id="book-phone" class="form-control" placeholder="+880 1XXX XXXXXX" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="book-guests">Guests</label>
+                <select id="book-guests" class="form-control" required>
+                  <option value="1-2">1 to 2 Guests</option>
+                  <option value="3-4" selected>3 to 4 Guests</option>
+                  <option value="5-8">5 to 8 Guests</option>
+                  <option value="9+">Private Party (9+ Guests)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="book-date">Date</label>
+                <input type="date" id="book-date" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="book-time">Preferred Time Slot</label>
+              <select id="book-time" class="form-control" required>
+                <option value="12:30 PM">12:30 PM (Lunch)</option>
+                <option value="02:00 PM">02:00 PM (Afternoon Tea)</option>
+                <option value="06:30 PM" selected>06:30 PM (Sunset Dinner)</option>
+                <option value="08:30 PM">08:30 PM (Prime Dinner)</option>
+                <option value="09:45 PM">09:45 PM (Late Evening)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="book-notes">Special Requests / Seating Preference</label>
+              <textarea id="book-notes" class="form-control" rows="3" placeholder="Patio seating, anniversary celebration, dietary allergies..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-pill" style="background-color: var(--color-accent-gold); color: #12100E; border: none; padding: 1rem; width: 100%; margin-top: 0.5rem;">
+              <span>Confirm Reservation Request &rarr;</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <h3 class="heading-md">The Courtyard</h3>
+          <p style="margin-top: 0.75rem; color: rgba(255,255,255,0.6); max-width: 320px; font-size: 0.9rem;">
+            A multi-dimensional restaurant and art sanctuary celebrating culinary passion, natural lighting, and timeless gatherings.
+          </p>
+        </div>
+
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">EXPLORE</span>
+          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem;">
+            <li><a href="index.html">Home Experience</a></li>
+            <li><a href="about.html">Story & Architecture</a></li>
+            <li><a href="menu.html">Culinary Menu</a></li>
+            <li><a href="contact.html">Private Dining & Events</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">CONTACT</span>
+          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; font-family: var(--font-mono);">
+            <li>+88 0131 213 5588</li>
+            <li>info@thecourtyard.com.bd</li>
+            <li>Park Heights, Dhanmondi, Dhaka</li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">OPENING HOURS</span>
+          <div style="margin-top: 1rem; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.7);">
+            <div>Sun &ndash; Thu: 12:00 PM &ndash; 11:00 PM</div>
+            <div>Fri &ndash; Sat: 09:00 AM &ndash; 11:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monumental Typography -->
+      <div class="footer-big-title">THE COURTYARD</div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 The Courtyard at Park Heights. All Rights Reserved.</div>
+        <div style="display: flex; gap: 2rem;">
+          <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/TheCourtyardatParkHeights" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://maps.app.goo.gl" target="_blank" rel="noopener">Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button class="scrolltop" aria-label="Scroll to Top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- CONFIRMATION TOAST -->
+  <div class="booking-toast"></div>
+
+  <!-- Script Initializations -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/swiper-init.js"></script>
+  <script src="assets/js/menu-drawer.js"></script>
+  <script src="assets/js/reservation.js"></script>
+</body>
+</html>

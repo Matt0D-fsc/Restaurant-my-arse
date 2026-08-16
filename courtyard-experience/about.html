@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Story & Architecture | The Courtyard at Park Heights</title>
+  <meta name="description" content="Discover the philosophy, architecture, and art sanctuary behind The Courtyard at Park Heights in Dhanmondi, Dhaka.">
+  <link rel="shortcut icon" href="assets/images/courtyard-logo.png" type="image/x-icon">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <!-- GSAP & Lenis CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- FIXED NAVIGATION -->
+  <header class="nav-wrapper nav-scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/courtyard-logo.png" alt="The Courtyard Logo" style="height: 38px; width: auto; filter: invert(0.15);">
+        <div>
+          <div class="nav-logo-text">The Courtyard</div>
+          <div class="nav-logo-sub">Park Heights &bull; Dhaka</div>
+        </div>
+      </a>
+
+      <!-- Navigation Links with SplitText Character Hover -->
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="hover-text">
+          <span class="top">Home</span>
+          <span class="bottom">Home</span>
+        </a>
+        <a href="about.html" class="hover-text" style="color: var(--color-accent-terracotta);">
+          <span class="top">The Story</span>
+          <span class="bottom">The Story</span>
+        </a>
+        <a href="menu.html" class="hover-text">
+          <span class="top">Culinary Menu</span>
+          <span class="bottom">Culinary Menu</span>
+        </a>
+        <a href="index.html#gallery" class="hover-text">
+          <span class="top">The Sanctuary</span>
+          <span class="bottom">The Sanctuary</span>
+        </a>
+        <a href="contact.html" class="hover-text">
+          <span class="top">Private Events</span>
+          <span class="bottom">Private Events</span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#reserve" class="btn-pill btn-pill-dark hide-mobile">
+          <span>Reserve Table</span>
+        </a>
+        <button class="burger-menu" aria-label="Open Navigation Menu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- FULLSCREEN DYNAMIC MENU DRAWER -->
+  <div class="menu-fullscreen">
+    <div class="menu-bg-images">
+      <img src="assets/images/ambiance-patio.webp" alt="" class="menu-bg-img img-cover-base">
+      <img src="assets/images/patio-rock-garden.jpg" alt="" class="menu-bg-img img-cover-exp">
+      <img src="assets/images/culinary-detail.webp" alt="" class="menu-bg-img img-cover-menu">
+      <img src="assets/images/courtyard-skylight.jpg" alt="" class="menu-bg-img img-cover-gallery">
+      <img src="assets/images/table-service.webp" alt="" class="menu-bg-img img-cover-contact">
+    </div>
+    <div class="menu-bg-overlay"></div>
+
+    <div class="menu-fullscreen-content">
+      <div class="menu-header">
+        <div class="menu-header-logo">The Courtyard</div>
+        <button class="burger-menu-close"><span>Close &times;</span></button>
+      </div>
+      <div class="menu-nav-links">
+        <a href="about.html" class="menu-nav-item menu-link-exp"><span class="menu-nav-num">01</span><span class="menu-nav-title">The Sanctuary & Patio</span></a>
+        <a href="menu.html" class="menu-nav-item menu-link-menu"><span class="menu-nav-num">02</span><span class="menu-nav-title">Culinary Catalog</span></a>
+        <a href="index.html#gallery" class="menu-nav-item menu-link-gallery"><span class="menu-nav-num">03</span><span class="menu-nav-title">Art Gallery & Architecture</span></a>
+        <a href="contact.html" class="menu-nav-item menu-link-contact"><span class="menu-nav-num">04</span><span class="menu-nav-title">Reservations & Concierge</span></a>
+      </div>
+      <div class="menu-footer">
+        <div>Park Heights, Dhanmondi, Dhaka, Bangladesh</div>
+        <div>Phone: +88 0131 213 5588 | info@thecourtyard.com.bd</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT HERO SECTION -->
+  <main style="padding-top: clamp(7rem, 12vh, 10rem); padding-bottom: 6rem;">
+    <div class="container">
+      <div style="max-width: 900px;">
+        <span class="tag-mono">OUR GENESIS & PHILOSOPHY</span>
+        <h1 class="heading-display" style="margin-top: 0.75rem;">
+          Where architecture, <span class="serif-italic">art & gastronomy</span> converge.
+        </h1>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; margin-top: 4rem; align-items: center;">
+        <div style="border-radius: 16px; overflow: hidden; height: 500px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+          <img src="assets/images/courtyard-skylight.jpg" alt="The Skylight Architecture" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div>
+          <span class="tag-mono">CONCEPTION</span>
+          <h2 class="heading-lg" style="margin: 0.5rem 0 1.5rem;">A Luminescent Oasis in Dhaka</h2>
+          <p style="font-size: 1.1rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+            The Courtyard at Park Heights was conceived as a respite from the pulsating energy of Dhaka. Our architectural masterplan incorporates large open spans, natural light channels, clean minimalist geometry, and high-quality organic textures.
+          </p>
+          <p style="font-size: 1.1rem; color: var(--color-text-secondary); line-height: 1.8;">
+            It promises to emanate a luminescence like no other eatery in town &mdash; welcoming guests into an environment where time slows down for genuine connection and conversation.
+          </p>
+        </div>
+      </div>
+
+      <!-- THE 3 PILLARS SECTION -->
+      <div style="margin-top: 7rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem;">
+        <div style="background: var(--color-bg-card); padding: 2.5rem; border-radius: 14px; border: 1px solid var(--color-border);">
+          <span class="tag-mono" style="color: var(--color-accent-terracotta);">PILLAR I</span>
+          <h3 class="heading-md" style="margin: 0.75rem 0 1rem;">Food with Soul</h3>
+          <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.7;">
+            Honoring Bengali heritage with deep, caramelized flavors alongside contemporary Asian and Continental craft without artificial additives or shortcuts.
+          </p>
+        </div>
+
+        <div style="background: var(--color-bg-card); padding: 2.5rem; border-radius: 14px; border: 1px solid var(--color-border);">
+          <span class="tag-mono" style="color: var(--color-accent-sage);">PILLAR II</span>
+          <h3 class="heading-md" style="margin: 0.75rem 0 1rem;">Living Art Sanctuary</h3>
+          <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.7;">
+            Our landscaped glass-covered patio serves as an active sculpture gallery and exhibition platform for both renowned masters and promising local artists.
+          </p>
+        </div>
+
+        <div style="background: var(--color-bg-card); padding: 2.5rem; border-radius: 14px; border: 1px solid var(--color-border);">
+          <span class="tag-mono" style="color: var(--color-accent-gold);">PILLAR III</span>
+          <h3 class="heading-md" style="margin: 0.75rem 0 1rem;">The Culture of Adda</h3>
+          <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.7;">
+            Spacious, unhurried seating designed for endless flows of conversation, quiet reading with single-origin coffee, or extended collaborative sessions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <h3 class="heading-md">The Courtyard</h3>
+          <p style="margin-top: 0.75rem; color: rgba(255,255,255,0.6); max-width: 320px; font-size: 0.9rem;">
+            Park Heights, Dhanmondi, Dhaka. Food, Art & Passion in natural harmony.
+          </p>
+        </div>
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">EXPLORE</span>
+          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem;">
+            <li><a href="index.html">Home Experience</a></li>
+            <li><a href="about.html">Story & Architecture</a></li>
+            <li><a href="menu.html">Culinary Menu</a></li>
+            <li><a href="contact.html">Private Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">BOOKINGS</span>
+          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; font-family: var(--font-mono);">
+            <li>+88 0131 213 5588</li>
+            <li>info@thecourtyard.com.bd</li>
+          </ul>
+        </div>
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">OPENING HOURS</span>
+          <div style="margin-top: 1rem; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.7);">
+            <div>Sun &ndash; Thu: 12:00 PM &ndash; 11:00 PM</div>
+            <div>Fri &ndash; Sat: 09:00 AM &ndash; 11:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-big-title">THE COURTYARD</div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 The Courtyard at Park Heights. All Rights Reserved.</div>
+        <div>Dhanmondi, Dhaka, Bangladesh</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scrolltop" aria-label="Scroll to Top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/menu-drawer.js"></script>
+</body>
+</html>

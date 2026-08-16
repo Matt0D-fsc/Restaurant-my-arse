@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culinary Menu | The Courtyard at Park Heights</title>
+  <meta name="description" content="Explore our multi-cultural culinary collection. From reimagined Bengali classics and fusion Dim Sum to live charcoal kebabs and artisanal mocktails.">
+  <link rel="shortcut icon" href="assets/images/courtyard-logo.png" type="image/x-icon">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <!-- GSAP & Lenis CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
+
+  <style>
+    .menu-filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 2.5rem 0 3.5rem;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-card);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-btn.is-active, .filter-btn:hover {
+      background: var(--color-text-primary);
+      color: var(--color-text-light);
+      border-color: var(--color-text-primary);
+    }
+
+    .menu-category-section {
+      margin-bottom: 5rem;
+    }
+
+    .menu-category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 2px solid var(--color-text-primary);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .menu-items-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .menu-items-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .menu-item-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      position: relative;
+    }
+
+    .menu-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .menu-item-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    .menu-item-dots {
+      flex: 1;
+      border-bottom: 1px dashed var(--color-border);
+      margin-bottom: 0.3rem;
+    }
+
+    .menu-item-price {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-accent-terracotta);
+    }
+
+    .menu-item-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .menu-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--color-accent-sand);
+      color: var(--color-text-primary);
+      margin-right: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED NAVIGATION -->
+  <header class="nav-wrapper nav-scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/courtyard-logo.png" alt="The Courtyard Logo" style="height: 38px; width: auto; filter: invert(0.15);">
+        <div>
+          <div class="nav-logo-text">The Courtyard</div>
+          <div class="nav-logo-sub">Park Heights &bull; Dhaka</div>
+        </div>
+      </a>
+
+      <!-- Navigation Links with SplitText Character Hover -->
+      <nav class="nav-links-desktop">
+        <a href="index.html" class="hover-text">
+          <span class="top">Home</span>
+          <span class="bottom">Home</span>
+        </a>
+        <a href="about.html" class="hover-text">
+          <span class="top">The Story</span>
+          <span class="bottom">The Story</span>
+        </a>
+        <a href="menu.html" class="hover-text" style="color: var(--color-accent-terracotta);">
+          <span class="top">Culinary Menu</span>
+          <span class="bottom">Culinary Menu</span>
+        </a>
+        <a href="index.html#gallery" class="hover-text">
+          <span class="top">The Sanctuary</span>
+          <span class="bottom">The Sanctuary</span>
+        </a>
+        <a href="contact.html" class="hover-text">
+          <span class="top">Private Events</span>
+          <span class="bottom">Private Events</span>
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#reserve" class="btn-pill btn-pill-dark hide-mobile">
+          <span>Reserve Table</span>
+        </a>
+        <button class="burger-menu" aria-label="Open Navigation Menu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- FULLSCREEN DYNAMIC MENU DRAWER -->
+  <div class="menu-fullscreen">
+    <div class="menu-bg-images">
+      <img src="assets/images/ambiance-patio.webp" alt="" class="menu-bg-img img-cover-base">
+      <img src="assets/images/patio-rock-garden.jpg" alt="" class="menu-bg-img img-cover-exp">
+      <img src="assets/images/culinary-detail.webp" alt="" class="menu-bg-img img-cover-menu">
+      <img src="assets/images/courtyard-skylight.jpg" alt="" class="menu-bg-img img-cover-gallery">
+      <img src="assets/images/table-service.webp" alt="" class="menu-bg-img img-cover-contact">
+    </div>
+    <div class="menu-bg-overlay"></div>
+
+    <div class="menu-fullscreen-content">
+      <div class="menu-header">
+        <div class="menu-header-logo">The Courtyard</div>
+        <button class="burger-menu-close">
+          <span>Close &times;</span>
+        </button>
+      </div>
+
+      <div class="menu-nav-links">
+        <a href="about.html" class="menu-nav-item menu-link-exp">
+          <span class="menu-nav-num">01</span>
+          <span class="menu-nav-title">The Sanctuary & Patio</span>
+        </a>
+        <a href="menu.html" class="menu-nav-item menu-link-menu">
+          <span class="menu-nav-num">02</span>
+          <span class="menu-nav-title">Culinary Catalog</span>
+        </a>
+        <a href="index.html#gallery" class="menu-nav-item menu-link-gallery">
+          <span class="menu-nav-num">03</span>
+          <span class="menu-nav-title">Art Gallery & Architecture</span>
+        </a>
+        <a href="contact.html" class="menu-nav-item menu-link-contact">
+          <span class="menu-nav-num">04</span>
+          <span class="menu-nav-title">Reservations & Concierge</span>
+        </a>
+      </div>
+
+      <div class="menu-footer">
+        <div>
+          <div>Park Heights, Dhanmondi, Dhaka, Bangladesh</div>
+          <div style="margin-top: 0.25rem;">Sun–Thu 12PM–11PM | Fri–Sat 9AM–11PM</div>
+        </div>
+        <div>
+          <div>Phone: +88 0131 213 5588</div>
+          <div>Email: info@thecourtyard.com.bd</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN MENU CONTENT -->
+  <main style="padding-top: clamp(7rem, 12vh, 10rem); padding-bottom: 6rem;">
+    <div class="container">
+      <div style="max-width: 800px;">
+        <span class="tag-mono">ATELIER GASTRONOMIQUE</span>
+        <h1 class="heading-display" style="margin-top: 0.5rem;">
+          The Culinary <span class="serif-italic">Catalog</span>
+        </h1>
+        <p style="font-size: 1.15rem; color: var(--color-text-secondary); margin-top: 1.5rem; line-height: 1.7;">
+          Our culinary narrative celebrates high-quality ingredients, traditional slow cooking, and global flavor alchemy. Every dish is crafted fresh to order.
+        </p>
+      </div>
+
+      <!-- Quick Category Anchor Links -->
+      <div class="menu-filter-bar">
+        <a href="#bengali-mains" class="filter-btn is-active">Heritage & Mains</a>
+        <a href="#dim-sum" class="filter-btn">Dim Sum & Street Food</a>
+        <a href="#kebabs" class="filter-btn">Charcoal Kebabs</a>
+        <a href="#breakfast" class="filter-btn">Breakfast & Brunch</a>
+        <a href="#desserts" class="filter-btn">Desserts & Waffles</a>
+        <a href="#beverages" class="filter-btn">Botanical Bar & Coffee</a>
+      </div>
+
+      <!-- CATEGORY 1: HERITAGE & MAINS -->
+      <section class="menu-category-section" id="bengali-mains">
+        <div class="menu-category-header">
+          <h2 class="heading-lg">Heritage Reimagined & Mains</h2>
+          <span class="tag-mono">Signature Creations</span>
+        </div>
+
+        <div class="menu-items-grid">
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Old Dhaka Kala Bhuna</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 895</span>
+            </div>
+            <p class="menu-item-desc">Slow-caramelized tender beef braised for 6 hours with 18 aromatic spices, served with fragrant Jeera Rice and charred chili.</p>
+            <div><span class="menu-tag">Chef Signature</span><span class="menu-tag">Spicy</span></div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Grilled Greek Chicken</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 720</span>
+            </div>
+            <p class="menu-item-desc">Herb-marinated chicken breast served with roasted Mediterranean vegetables, garlic confit mashed potatoes, and oregano jus.</p>
+            <div><span class="menu-tag">Continental</span></div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Chicken Mandi Rice</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 780</span>
+            </div>
+            <p class="menu-item-desc">Smoked aromatic long-grain basmati rice with whole roast spiced chicken, dried lime, and spicy tomato salsa sauce.</p>
+            <div><span class="menu-tag">Middle Eastern</span></div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Thai Basil Chili Noodle Bowl</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 620</span>
+            </div>
+            <p class="menu-item-desc">Hand-pulled flat noodles tossed in sweet oyster reduction, holy basil, bell peppers, and choice of chicken or prawns.</p>
+            <div><span class="menu-tag">Exotic Asian</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORY 2: DIM SUM & STREET FOOD -->
+      <section class="menu-category-section" id="dim-sum">
+        <div class="menu-category-header">
+          <h2 class="heading-lg">Fusion Dim Sum & Street Plates</h2>
+          <span class="tag-mono">Small Plates</span>
+        </div>
+
+        <div class="menu-items-grid">
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Prawn Crystal Pockets (6 pcs)</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 545</span>
+            </div>
+            <p class="menu-item-desc">Translucent steamed har gow dumplings packed with tiger prawns and sesame spring onion oil.</p>
+            <div><span class="menu-tag">Dim Sum</span><span class="menu-tag">Seafood</span></div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Truffle Paneer Salad</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 460</span>
+            </div>
+            <p class="menu-item-desc">Artisanal grilled paneer cubes with baby greens, heirloom cherry tomatoes, toasted pine nuts, and lemon vinaigrette.</p>
+            <div><span class="menu-tag">Vegetarian</span></div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Chicken Salsa Spring Rolls</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 420</span>
+            </div>
+            <p class="menu-item-desc">Crispy golden cigar rolls filled with pulled spiced chicken and fresh corn pico de gallo dip.</p>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Bengali Street Fuchka Fusion</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 380</span>
+            </div>
+            <p class="menu-item-desc">Crisp artisanal semolina spheres filled with spiced mashed chickpeas, tangy tamarind mint broth, and grated egg.</p>
+            <div><span class="menu-tag">Street Classic</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORY 3: LIVE CHARCOAL KEBABS -->
+      <section class="menu-category-section" id="kebabs">
+        <div class="menu-category-header">
+          <h2 class="heading-lg">Live Charcoal Kebabs & Tandoor</h2>
+          <span class="tag-mono">Clay Oven Fire</span>
+        </div>
+
+        <div class="menu-items-grid">
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Royal Courtyard Kebab Platter</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 1,250</span>
+            </div>
+            <p class="menu-item-desc">Chef selection of Chicken Malai Kebab, Mutton Galouti, Fish Tikka, and 2 Butter Tandoor Naans with mint chutney.</p>
+            <div><span class="menu-tag">Sharing Platter</span></div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Chicken Reshmi Malai Kebab</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 580</span>
+            </div>
+            <p class="menu-item-desc">Melt-in-mouth chicken cubes steeped in cashew nut paste, cardamom cream, and roasted over slow coals.</p>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Tandoor Garlic Butter Naan</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 120</span>
+            </div>
+            <p class="menu-item-desc">Hand-stretched leavened bread slapped against the blazing clay tandoor wall, glazed with pure ghee and crushed garlic.</p>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Spiced Fish Tikka</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 680</span>
+            </div>
+            <p class="menu-item-desc">Boneless seasonal red snapper fillets marinated in mustard oil, ajwain, and Kashmiri chili.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORY 4: DESSERTS & BEVERAGES -->
+      <section class="menu-category-section" id="desserts">
+        <div class="menu-category-header">
+          <h2 class="heading-lg">Dessert Atelier & Botanicals</h2>
+          <span class="tag-mono">Sweet & Refreshing</span>
+        </div>
+
+        <div class="menu-items-grid">
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Belgian Waffle with Gelato</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 480</span>
+            </div>
+            <p class="menu-item-desc">Crisp golden waffle drizzled with salted caramel, Valrhona chocolate fudge, and house vanilla soft serve.</p>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Gourmet Pistachio Kulfi</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 320</span>
+            </div>
+            <p class="menu-item-desc">Traditional slow-reduced saffron milk confection dense with roasted Iranian pistachios and cardamom.</p>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Yuzu & Mint Botanical Cooler</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 380</span>
+            </div>
+            <p class="menu-item-desc">Japanese Yuzu reduction, cold-pressed mint leaves, cucumber ribbon, and effervescent tonic.</p>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="menu-item-top">
+              <span class="menu-item-title">Artisan Espresso Cortado</span>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">৳ 260</span>
+            </div>
+            <p class="menu-item-desc">Double shot of single-origin arabica cut with silky textured steamed milk.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <h3 class="heading-md">The Courtyard</h3>
+          <p style="margin-top: 0.75rem; color: rgba(255,255,255,0.6); max-width: 320px; font-size: 0.9rem;">
+            Park Heights, Dhanmondi, Dhaka. Food, Art & Passion in natural harmony.
+          </p>
+        </div>
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">EXPLORE</span>
+          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem;">
+            <li><a href="index.html">Home Experience</a></li>
+            <li><a href="about.html">Story & Architecture</a></li>
+            <li><a href="menu.html">Culinary Menu</a></li>
+            <li><a href="contact.html">Private Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">BOOKINGS</span>
+          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; font-family: var(--font-mono);">
+            <li>+88 0131 213 5588</li>
+            <li>info@thecourtyard.com.bd</li>
+          </ul>
+        </div>
+        <div>
+          <span class="tag-mono" style="color: var(--color-accent-gold);">OPENING HOURS</span>
+          <div style="margin-top: 1rem; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.7);">
+            <div>Sun &ndash; Thu: 12:00 PM &ndash; 11:00 PM</div>
+            <div>Fri &ndash; Sat: 09:00 AM &ndash; 11:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-big-title">THE COURTYARD</div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 The Courtyard at Park Heights. All Rights Reserved.</div>
+        <div>Dhanmondi, Dhaka, Bangladesh</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scrolltop" aria-label="Scroll to Top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/menu-drawer.js"></script>
+</body>
+</html>
