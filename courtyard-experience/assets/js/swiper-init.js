@@ -36,6 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
       1024: {
         spaceBetween: 28,
       }
+    },
+    on: {
+      init: function () {
+        if (typeof ScrollTrigger !== 'undefined') {
+          setTimeout(() => ScrollTrigger.refresh(), 100);
+        }
+      }
     }
   });
 

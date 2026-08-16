@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power3.out"
       });
 
-      gsap.from(".booking-box", {
+        gsap.from(".booking-box", {
         scrollTrigger: {
           trigger: ".section-booking",
           start: "top 80%",
@@ -248,5 +248,73 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power3.out"
       });
     }
+
+    // Initialize Scroll Zoom on images
+    initScrollZoomImages();
   }
+
+  // 6. JOAKIM-STYLE SCROLL-REACTIVE IMAGE ZOOM & SETTLE EFFECT
+  function initScrollZoomImages() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    const zoomContainers = document.querySelectorAll(
+      '[data-scroll-zoom], .hero-card, .pinned-images-wrap, .ambiance-img-wrap, .swiper-slide'
+    );
+
+    zoomContainers.forEach((container) => {
+      const img = container.querySelector('img');
+      if (!img) return;
+
+      if (img.dataset.scrollZoomInit === 'true') return;
+      img.dataset.scrollZoomInit = 'true';
+
+      container.style.overflow = 'hidden';
+      img.style.willChange = 'transform';
+      img.style.transformOrigin = 'center center';
+
+      // Create high-precision bidirectional scroll scrub timeline
+      // Phase 1 (Entering -> Mid Viewport): Smoothly zooms in (scale 1.0 -> 1.16) with subtle downward shift
+      // Phase 2 (Mid Viewport -> Exiting): Smoothly zooms out / settles back (scale 1.16 -> 1.02)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      tl.fromTo(
+        img,
+        {
+          scale: 1.0,
+          yPercent: -4,
+          force3D: true,
+        },
+        {
+          scale: 1.16,
+          yPercent: 0,
+          ease: 'sine.inOut',
+          duration: 1,
+        }
+      ).to(img, {
+        scale: 1.02,
+        yPercent: 4,
+        ease: 'sine.inOut',
+        duration: 1,
+      });
+    });
+
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.refresh();
+    }
+  }
+
+  // Global window load and resize refresh for scroll triggers
+  window.addEventListener('load', () => {
+    if (typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.refresh();
+    }
+  });
 });

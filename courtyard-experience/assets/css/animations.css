@@ -71,14 +71,27 @@ html.lenis, html.lenis body {
   animation: shimmer 2.5s infinite;
 }
 
-/* Parallax Image Scale */
-.img-parallax-container {
-  overflow: hidden;
+/* Joakim-Style Scroll-Reactive Image Zoom & Parallax System */
+[data-scroll-zoom],
+.img-parallax-container,
+.hero-card,
+.pinned-images-wrap,
+.ambiance-img-wrap,
+.swiper-slide {
+  overflow: hidden !important;
   position: relative;
 }
 
-.img-parallax-container img {
+[data-scroll-zoom] img,
+.img-parallax-container img,
+.hero-card img,
+.pinned-images-wrap img,
+.ambiance-img-wrap img,
+.swiper-slide img {
   will-change: transform;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Notification Toast */
