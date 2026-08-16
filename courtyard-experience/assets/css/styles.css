@@ -593,13 +593,38 @@ ul, ol {
   gap: 1.5rem;
 }
 
-.preloader-brand {
-  font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
-  letter-spacing: -0.01em;
-  line-height: 1;
-  font-weight: 400;
-  overflow: hidden;
+.preloader-signature-wrap {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  padding: 0 1rem;
+}
+
+.preloader-signature-svg {
+  width: 100%;
+  height: auto;
+  max-height: 130px;
+  overflow: visible;
+  filter: drop-shadow(0 0 14px rgba(197, 168, 128, 0.3));
+}
+
+.signature-strokes path {
+  fill: none;
+  stroke: var(--color-accent-gold);
+  stroke-width: 2.8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  will-change: stroke-dashoffset;
+}
+
+.signature-fill-text {
+  opacity: 0;
+  fill: var(--color-accent-gold);
+  transition: opacity 0.5s ease;
+  user-select: none;
 }
 
 .preloader-tagline {

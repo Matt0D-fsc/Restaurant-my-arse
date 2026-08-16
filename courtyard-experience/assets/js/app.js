@@ -4,20 +4,55 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. PRELOADER TIMELINE
+  // 1. PRELOADER & REALTIME HANDWRITTEN SIGNATURE CONTROLLER
   const preloader = document.querySelector('.preloader');
   const preloaderBar = document.querySelector('.preloader-bar');
-  
+  const strokePaths = document.querySelectorAll('.signature-strokes path');
+  const fillText = document.querySelector('.signature-fill-text');
+
+  // Initialize SVG stroke paths for real-time write-on effect
+  const pathData = [];
+  let totalStrokeLength = 0;
+
+  strokePaths.forEach((path) => {
+    const len = path.getTotalLength ? path.getTotalLength() : 100;
+    path.style.strokeDasharray = len;
+    path.style.strokeDashoffset = len;
+    pathData.push({ path, length: len, startOffset: totalStrokeLength });
+    totalStrokeLength += len;
+  });
+
+  function updateSignatureProgress(progressRatio) {
+    const currentDrawnLength = progressRatio * totalStrokeLength;
+
+    pathData.forEach(({ path, length, startOffset }) => {
+      if (currentDrawnLength <= startOffset) {
+        path.style.strokeDashoffset = length;
+      } else if (currentDrawnLength >= startOffset + length) {
+        path.style.strokeDashoffset = 0;
+      } else {
+        const pathRatio = (currentDrawnLength - startOffset) / length;
+        path.style.strokeDashoffset = length * (1 - pathRatio);
+      }
+    });
+  }
+
   if (preloader) {
     document.body.classList.add('no-scroll');
     let progress = 0;
     const interval = setInterval(() => {
-      progress += Math.random() * 25 + 15;
+      progress += Math.random() * 10 + 6;
       if (progress >= 100) {
         progress = 100;
         clearInterval(interval);
         if (preloaderBar) preloaderBar.style.width = '100%';
-        
+        updateSignatureProgress(1);
+
+        // Soft gold luster fill upon completion
+        if (fillText) {
+          fillText.style.opacity = '1';
+        }
+
         setTimeout(() => {
           gsap.to(preloader, {
             yPercent: -100,
@@ -28,11 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
               initHeroAnimations();
             }
           });
-        }, 400);
+        }, 550);
       } else {
+        const ratio = progress / 100;
         if (preloaderBar) preloaderBar.style.width = `${progress}%`;
+        updateSignatureProgress(ratio);
       }
-    }, 120);
+    }, 80);
   } else {
     initHeroAnimations();
   }
