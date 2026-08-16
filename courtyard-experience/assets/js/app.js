@@ -273,8 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
       img.style.transformOrigin = 'center center';
 
       // Create high-precision bidirectional scroll scrub timeline
-      // Phase 1 (Entering -> Mid Viewport): Smoothly zooms in (scale 1.0 -> 1.16) with subtle downward shift
-      // Phase 2 (Mid Viewport -> Exiting): Smoothly zooms out / settles back (scale 1.16 -> 1.02)
+      // Phase 1 (Entering -> Mid Viewport): Slight, refined zoom in (scale 1.0 -> 1.06)
+      // Phase 2 (Mid Viewport -> Exiting): Gentle, understated settle back (scale 1.06 -> 1.01)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
@@ -289,18 +289,18 @@ document.addEventListener('DOMContentLoaded', () => {
         img,
         {
           scale: 1.0,
-          yPercent: -4,
+          yPercent: -1.5,
           force3D: true,
         },
         {
-          scale: 1.16,
+          scale: 1.06,
           yPercent: 0,
           ease: 'sine.inOut',
           duration: 1,
         }
       ).to(img, {
-        scale: 1.02,
-        yPercent: 4,
+        scale: 1.01,
+        yPercent: 1.5,
         ease: 'sine.inOut',
         duration: 1,
       });
