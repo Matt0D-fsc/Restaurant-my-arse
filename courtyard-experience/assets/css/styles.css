@@ -1,6 +1,6 @@
 /* ==========================================================================
    THE COURTYARD AT PARK HEIGHTS — LUXURY DESIGN SYSTEM
-   Inspired by latabledejoakim.fr with bespoke aesthetic architecture
+   1:1 Inspired by latabledejoakim.fr with bespoke aesthetic architecture
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
@@ -23,7 +23,16 @@
   --color-border: rgba(26, 23, 21, 0.12);
   --color-border-light: rgba(247, 245, 240, 0.15);
 
-  /* Menu Backdrop Colors (from Joakim Palette) */
+  /* Joakim Exact Brand Palette Tokens */
+  --brand-color--light-brown: rgb(155, 124, 109);
+  --brand-color--dark-brown: #553D34;
+  --brand-color--light-blue: rgb(216, 225, 235);
+  --brand-color--dark-blue: #6D7E90;
+  --brand-color--light-green: #BFC5AF;
+  --brand-color--pure-white: #FFFFFF;
+  --brand-color--pure-black: #12100E;
+
+  /* Menu Backdrop Colors */
   --bg-menu-base: #D8E1EB;
   --bg-menu-exp: #D8E1EB;
   --bg-menu-ser: #BFC5AF;
@@ -36,7 +45,7 @@
   --font-mono: 'Geist Mono', monospace;
   --font-script: 'Great Vibes', cursive;
 
-  /* Preloader Logo Scaling (Adjustable) */
+  /* Preloader Logo Scaling */
   --preloader-logo-size: clamp(3.4rem, 7.5vw, 6rem);
 
   /* Transitions */
@@ -62,7 +71,7 @@ html {
   font-size: 16px;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
-  scroll-behavior: auto !important; /* Lenis takes control */
+  scroll-behavior: auto !important; /* Lenis handles smooth scrolling */
 }
 
 body {
@@ -72,6 +81,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
   position: relative;
 }
@@ -107,6 +117,15 @@ ul, ol {
 
 /* Container */
 .container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.padding-global {
   width: 100%;
   max-width: var(--container-max);
   margin-left: auto;
@@ -157,7 +176,7 @@ ul, ol {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--color-text-secondary);
 }
 
@@ -277,39 +296,35 @@ ul, ol {
   opacity: 0.75;
 }
 
-/* SplitText Hover Effect (.hover-text) from Joakim */
-.hover-text {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
+/* Secondary Page Nav & Utility Classes */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.nav-logo-sub {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  padding: 0.25rem 0;
+  color: var(--color-text-secondary);
+  margin-top: 0.2rem;
 }
 
-.hover-text .top,
-.hover-text .bottom {
-  display: block;
-  white-space: nowrap;
-}
-
-.hover-text .bottom {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: var(--color-accent-terracotta);
-}
-
-.nav-wrapper:not(.nav-scrolled) .hover-text .bottom {
-  color: var(--color-accent-gold);
-}
-
-.hover-text .char {
-  display: inline-block;
-  will-change: transform, opacity;
+.nav-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .nav-actions {
@@ -318,63 +333,16 @@ ul, ol {
   gap: 1rem;
 }
 
-.btn-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  border: 1px solid var(--color-text-primary);
-  background-color: transparent;
-  color: var(--color-text-primary);
-  cursor: pointer;
-  transition: all var(--transition-med);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-pill::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-text-primary);
-  transform: translateY(100%);
-  transition: transform var(--transition-med);
-  z-index: 0;
-}
-
-.btn-pill:hover::before {
-  transform: translateY(0);
-}
-
-.btn-pill:hover {
-  color: var(--color-text-light);
-}
-
-.btn-pill span {
-  position: relative;
-  z-index: 1;
-}
-
 .btn-pill-dark {
-  background-color: var(--color-text-primary);
-  color: var(--color-text-light);
+  background-color: var(--color-text-primary) !important;
+  color: var(--color-text-light) !important;
 }
 
-.btn-pill-dark::before {
-  background-color: var(--color-accent-terracotta);
+.btn-pill-dark:hover {
+  background-color: var(--color-accent-terracotta) !important;
+  color: #FFFFFF !important;
 }
 
-/* Burger Menu Button */
 .burger-menu {
   display: flex;
   flex-direction: column;
@@ -400,6 +368,100 @@ ul, ol {
   height: 1.5px;
   background-color: var(--color-text-primary);
   transition: transform var(--transition-fast), width var(--transition-fast);
+}
+
+@media (max-width: 991px) {
+  .nav-links-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   GSAP SPLIT-TEXT CTA EFFECT (.hover-text)
+   ========================================================================== */
+.hover-text {
+  position: relative;
+  display: inline-block;
+  height: 1.25em;
+  overflow: hidden;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hover-text.black {
+  color: var(--brand-color--pure-black) !important;
+}
+
+.hover-text.green {
+  color: var(--brand-color--light-green) !important;
+}
+
+.hover-text.brown {
+  color: var(--brand-color--dark-brown) !important;
+}
+
+.hover-text.blue {
+  color: var(--brand-color--dark-blue) !important;
+}
+
+.hover-text .line {
+  display: block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.hover-text .bottom {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.hover-text .char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.subline {
+  background-color: var(--brand-color--pure-white);
+  width: 100%;
+  height: 1px;
+  margin-top: 0.25rem;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.subline.black {
+  background-color: var(--brand-color--pure-black);
+}
+
+.subline.brown {
+  background-color: var(--brand-color--dark-brown);
+}
+
+.subline.blue {
+  background-color: var(--brand-color--dark-blue);
+}
+
+.cta-white, .cta-black {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+.cta-white:hover .subline,
+.cta-black:hover .subline {
+  transform: scaleX(1.08);
 }
 
 /* ==========================================================================
@@ -569,7 +631,7 @@ ul, ol {
 }
 
 /* ==========================================================================
-   PAGE PRELOADER (Light Luxury Theme)
+   PAGE PRELOADER
    ========================================================================== */
 .preloader {
   position: fixed;
@@ -596,7 +658,6 @@ ul, ol {
   gap: 1.5rem;
 }
 
-/* Preloader Clean Luxury Signature Stage (Black Logo on White) */
 .preloader-logo-stage {
   position: relative;
   display: flex;
@@ -619,14 +680,6 @@ ul, ol {
   display: block;
 }
 
-.preloader-tagline {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--color-accent-terracotta);
-}
-
 .preloader-location {
   color: var(--color-text-secondary) !important;
 }
@@ -647,7 +700,7 @@ ul, ol {
 }
 
 /* ==========================================================================
-   FULLSCREEN VISUAL STORYTELLING HERO (Joakim Experience)
+   SECTION 1: HERO (Storytelling 3-Column Layout)
    ========================================================================== */
 .section-hero {
   min-height: 100vh;
@@ -720,7 +773,6 @@ ul, ol {
   }
 }
 
-/* Left Narrative / Typewriter */
 .hero-story-left {
   display: flex;
   flex-direction: column;
@@ -758,7 +810,6 @@ ul, ol {
   50% { opacity: 0; }
 }
 
-/* Center Monumental Headline & CTA */
 .hero-story-center {
   display: flex;
   flex-direction: column;
@@ -802,30 +853,6 @@ ul, ol {
   align-items: center;
 }
 
-.hero-cta-link {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  display: inline-block;
-  padding-bottom: 0.4rem;
-  cursor: pointer;
-}
-
-.hero-cta-underline {
-  height: 1px;
-  width: 0%;
-  background: linear-gradient(90deg, transparent, var(--color-accent-gold), transparent);
-  transition: width 0.4s var(--ease-out-expo), background-color 0.3s ease;
-}
-
-.hero-cta-box:hover .hero-cta-underline {
-  background: var(--color-accent-gold);
-  width: 100% !important;
-}
-
-/* Right Narrative / Blur-to-Focus Drift */
 .hero-story-right {
   display: flex;
   flex-direction: column;
@@ -843,244 +870,500 @@ ul, ol {
 }
 
 /* ==========================================================================
-   PINNED SCROLL / PHILOSOPHY SECTION
+   SECTION 2: DUAL-STAGE PINNED SCROLL TRANSITION (Joakim 1:1)
    ========================================================================== */
-.section-pinned {
-  padding: clamp(5rem, 10vh, 9rem) 0;
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
+.section_2_home {
+  width: 100%;
   position: relative;
-  overflow: hidden;
-}
-
-.pinned-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: center;
-}
-
-@media (max-width: 991px) {
-  .pinned-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.pinned-text-wrap {
+  background-color: var(--brand-color--light-brown);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
-.pinned-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  color: var(--color-accent-gold);
-  width: fit-content;
-}
-
-.pinned-images-wrap {
+.scroll-container {
+  height: 220vh;
   position: relative;
-  height: 580px;
-  border-radius: 16px;
-  overflow: hidden;
+  width: 100%;
 }
 
-.pinned-images-wrap img {
+.scroll-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--brand-color--light-brown);
+  transition: background-color 0.8s ease;
+}
+
+.section-1, .section-2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 3.5vh, 2.75rem);
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+}
+
+.section-1 {
+  z-index: 2;
+}
+
+.section-2 {
+  z-index: 1;
+}
+
+.text-center-block {
+  text-align: center;
+  max-width: 680px;
+  width: 90%;
+  position: relative;
+}
+
+.heading-1-scroll {
+  color: var(--brand-color--dark-brown);
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.heading-2-scroll {
+  color: var(--brand-color--dark-blue);
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.4vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.img-scroll {
+  z-index: 2;
+  width: clamp(230px, 18.5vw, 280px);
+  aspect-ratio: 2 / 2.75;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
+}
+
+.img-scroll.anim-element {
+  will-change: clip-path, transform;
+}
+
+.img-cover-2 {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
+  image-rendering: -webkit-optimize-contrast;
+  filter: brightness(0.98) contrast(1.04) saturate(1.06);
+}
+
+.text-center-block-bottom {
+  z-index: 2;
+  text-align: center;
+  max-width: 640px;
+  width: 90%;
+  position: relative;
+}
+
+.text-brown {
+  color: var(--brand-color--dark-brown);
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.85;
+  letter-spacing: 0.08em;
+}
+
+.text-brown-2 {
+  color: var(--brand-color--dark-blue);
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.85;
+  letter-spacing: 0.08em;
+}
+
+/* Line mask typography split */
+.line-mask {
+  overflow: clip;
+  display: block;
+}
+
+.line-inner {
+  display: block;
+  will-change: transform;
+}
+
+.word-measure {
+  display: inline-block;
 }
 
 /* ==========================================================================
-   SWIPER SIGNATURE DISHES SHOWCASE
+   SECTION 3: CORE PHILOSOPHY & ASYMMETRICAL LAYOUT (Joakim 1:1)
    ========================================================================== */
-.section-showcase {
-  padding: clamp(5rem, 10vh, 8rem) 0;
-  overflow: hidden;
+.section_3_home {
+  padding: clamp(6rem, 12vh, 10rem) 0;
   background-color: var(--color-bg);
+  position: relative;
+  overflow: hidden;
 }
 
-.showcase-header {
+.top-title-sec-3 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3rem;
+  max-width: 720px;
+  margin: 0 auto clamp(3.5rem, 7vh, 6rem);
+}
+
+.left-title-sec-3 {
+  flex-shrink: 0;
+}
+
+.heading-3 {
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+.heading-3 em {
+  font-style: italic;
+}
+
+.right-titel-sec-3 {
+  flex-grow: 1;
+}
+
+.heading-4 {
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2.6vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+.right-img-sec-3-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: clamp(3rem, 6vh, 5rem);
+}
+
+.left-img-sec-3-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.img-text-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: clamp(320px, 42vw, 560px);
+}
+
+.img-text-bloc-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: clamp(320px, 44vw, 600px);
+}
+
+.img-1-sec-3-wrapper, .img-2-sec-3wrapper {
+  aspect-ratio: 2 / 2.8;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.mask-white {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-bg);
+  z-index: 5;
+  will-change: transform, opacity;
+}
+
+.text-black {
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+}
+
+.text-wrapper-2-sec-3 {
+  max-width: 420px;
+}
+
+/* ==========================================================================
+   SECTION 4: SERVICE BREAKDOWN (Multi-Column Layout)
+   ========================================================================== */
+.section_service_breakdown {
+  padding: clamp(5rem, 10vh, 8.5rem) 0;
+  background-color: var(--color-bg-card);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.breakdown-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
-.showcase-nav-btns {
+.breakdown-header-right {
+  max-width: 520px;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+@media (max-width: 1024px) {
+  .breakdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .breakdown-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.breakdown-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
+}
+
+.breakdown-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-gold);
+}
+
+.breakdown-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+}
+
+.breakdown-desc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   SECTION 5: SIGNATURE SHOWCASE SLIDER (Joakim 1:1)
+   ========================================================================== */
+.section_slider_actualites {
+  padding: clamp(5rem, 10vh, 9rem) 0;
+  background-color: var(--color-bg);
+  overflow: hidden;
+}
+
+.slider-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.title-slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  color: var(--brand-color--pure-black);
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.left-title-slider {
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--color-text-secondary);
+  max-width: 240px;
+}
+
+.right-title-slider {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.heading-6 {
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.arrows-slider {
   display: flex;
   gap: 0.75rem;
 }
 
-.swiper-nav-btn {
-  width: 52px;
-  height: 52px;
+.arrow-left, .arrow-right {
+  z-index: 10;
+  cursor: pointer;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: 1px solid var(--color-border);
   background-color: var(--color-bg-card);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   transition: all var(--transition-med);
 }
 
-.swiper-nav-btn:hover {
+.arrow-left:hover, .arrow-right:hover {
   background-color: var(--color-text-primary);
-  color: var(--color-text-light);
-  border-color: var(--color-text-primary);
-  transform: scale(1.05);
+  color: #FFFFFF;
+  transform: scale(1.08);
+}
+
+.arrow-left svg, .arrow-right svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
 }
 
 .swiper {
   width: 100%;
-  padding-bottom: 2rem !important;
   overflow: visible !important;
+  padding-bottom: 2rem !important;
 }
 
 .swiper-slide {
+  flex: 0 0 380px;
   width: 380px !important;
-  height: 480px;
-  border-radius: 16px;
-  overflow: hidden;
+  height: 500px;
   position: relative;
+  border-radius: 12px;
+  overflow: hidden;
   background-color: var(--color-bg-card);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
   transition: transform var(--transition-med), box-shadow var(--transition-med);
 }
 
 @media (max-width: 768px) {
   .swiper-slide {
+    flex: 0 0 290px;
     width: 290px !important;
-    height: 400px;
+    height: 420px;
   }
 }
 
 .swiper-slide:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
 }
 
-.swiper-slide img {
+.img-slider-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.img-slider-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Hover Overlay from Joakim */
 .hover-slider-item {
-  position: absolute;
-  top: 0;
-  left: 0;
+  z-index: 5;
+  background-color: var(--brand-color--light-brown);
+  opacity: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(18, 16, 14, 0.1) 0%, rgba(18, 16, 14, 0.9) 100%);
-  color: #FFFFFF;
+  color: var(--brand-color--dark-brown);
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 2rem;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 10;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 2.5rem 2.25rem;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  inset: 0;
+  pointer-events: auto !important;
 }
 
 .swiper-slide:hover .hover-slider-item {
   opacity: 1;
 }
 
-.dish-category {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  color: var(--color-accent-gold);
+.heading-5 {
+  color: var(--brand-color--dark-brown);
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.dish-name {
   font-family: var(--font-serif);
-  font-size: 1.8rem;
-  line-height: 1.1;
-  margin-bottom: 0.75rem;
+  font-size: 2.1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.15;
 }
 
-.dish-desc {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.dish-price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-}
-
-/* ==========================================================================
-   AMBIANCE & GALLERY SECTION
-   ========================================================================== */
-.section-ambiance {
-  padding: clamp(5rem, 10vh, 9rem) 0;
-  background-color: var(--color-bg-alt);
-}
-
-.ambiance-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-top: 3.5rem;
-}
-
-@media (max-width: 991px) {
-  .ambiance-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.ambiance-card {
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--color-bg-card);
-  padding: 1.5rem;
-  border: 1px solid var(--color-border);
+.content-hover-blog {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.25rem;
-  transition: transform var(--transition-med), box-shadow var(--transition-med);
-}
-
-.ambiance-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
-}
-
-.ambiance-img-wrap {
-  height: 280px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.ambiance-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  color: var(--brand-color--dark-brown);
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
 /* ==========================================================================
-   RESERVATION & CONTACT SECTION
+   SECTION 6: CONCIERGE & RESERVATION (Luxury Box)
    ========================================================================== */
 .section-booking {
   padding: clamp(5rem, 10vh, 9rem) 0;
@@ -1153,34 +1436,93 @@ ul, ol {
   }
 }
 
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-med);
+}
+
 /* ==========================================================================
-   FOOTER
+   SECTION 7: LUXURY FOOTER (Joakim Minimalist Architecture)
    ========================================================================== */
 .footer {
   background-color: var(--color-bg-dark);
   color: var(--color-text-light);
-  padding: clamp(4rem, 8vh, 7rem) 0 2rem;
+  padding: clamp(4.5rem, 8vh, 7.5rem) 0 2rem;
   border-top: 1px solid var(--color-border-light);
 }
 
-.footer-top {
+.bottom-footer {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.2fr;
-  gap: 3rem;
+  grid-template-columns: 380px 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
   margin-bottom: 4rem;
 }
 
 @media (max-width: 991px) {
-  .footer-top {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+  .bottom-footer {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 576px) {
-  .footer-top {
+.column-footer-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.link-footer {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transition-fast);
+}
+
+a.link-footer:hover {
+  color: #FFFFFF;
+}
+
+.logo_footer {
+  width: 220px;
+  color: #FFFFFF;
+}
+
+.div-block-23 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .div-block-23 {
     grid-template-columns: 1fr;
   }
+}
+
+.column-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.column-footer-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+  margin-bottom: 0.5rem;
 }
 
 .footer-big-title {
@@ -1188,25 +1530,43 @@ ul, ol {
   font-size: clamp(3.5rem, 11vw, 11rem);
   line-height: 0.85;
   text-align: center;
-  color: rgba(255, 255, 255, 0.12);
-  margin: 3rem 0;
+  color: rgba(255, 255, 255, 0.08);
+  margin: 3.5rem 0;
   user-select: none;
   font-weight: 400;
   letter-spacing: -0.02em;
 }
 
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 2rem;
+.copyright {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  padding-top: 1.5rem;
+  gap: 1rem;
 }
 
-/* Scroll To Top Button */
+@media (max-width: 768px) {
+  .copyright {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.item-copyright {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.item-copyright a {
+  color: inherit;
+}
+
+.item-copyright a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Scroll To Top */
 .scrolltop {
   position: fixed;
   bottom: 2rem;
@@ -1239,4 +1599,50 @@ ul, ol {
   background-color: var(--color-text-primary);
   color: var(--color-text-light);
   transform: translateY(-4px);
+}
+
+/* Responsive Fallback for Pinned Section on Mobile */
+@media screen and (max-width: 991px) {
+  .scroll-container {
+    height: auto;
+  }
+
+  .scroll-wrapper {
+    position: relative;
+    height: auto;
+    background-color: transparent !important;
+  }
+
+  .section-1, .section-2 {
+    position: relative;
+    height: auto;
+    padding: 5rem 1.5rem;
+    background-color: var(--brand-color--light-brown);
+  }
+
+  .section-2 {
+    background-color: var(--brand-color--light-blue);
+  }
+
+  .top-title-sec-3 {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .right-img-sec-3-wrapper,
+  .left-img-sec-3-wrapper {
+    justify-content: center;
+  }
+
+  .img-text-bloc,
+  .img-text-bloc-2 {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .img-1-sec-3-wrapper,
+  .img-2-sec-3wrapper {
+    max-width: 340px;
+  }
 }

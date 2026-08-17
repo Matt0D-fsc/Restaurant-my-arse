@@ -77,7 +77,9 @@ html.lenis, html.lenis body {
 .hero-card,
 .pinned-images-wrap,
 .ambiance-img-wrap,
-.swiper-slide {
+.swiper-slide,
+.img-1-sec-3-wrapper,
+.img-2-sec-3wrapper {
   overflow: hidden !important;
   position: relative;
 }
@@ -87,7 +89,9 @@ html.lenis, html.lenis body {
 .hero-card img,
 .pinned-images-wrap img,
 .ambiance-img-wrap img,
-.swiper-slide img {
+.swiper-slide img,
+.img-1-sec-3-wrapper img,
+.img-2-sec-3wrapper img {
   will-change: transform;
   transform-origin: center center;
   backface-visibility: hidden;

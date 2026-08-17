@@ -23,11 +23,9 @@
   <!-- PAGE PRELOADER (Quiet Luxury Signature Stage) -->
   <div class="preloader">
     <div class="preloader-content">
-      <!-- Signature Brand Logo Stage (Lottie / Vector Ready) -->
       <div class="preloader-logo-stage" id="preloader-logo-container">
         <span class="preloader-signature-text">The Courtyard</span>
       </div>
-
       <div class="tag-mono preloader-location" style="letter-spacing: 0.2em;">PARK HEIGHTS &bull; DHANMONDI</div>
       <div class="preloader-bar-wrap">
         <div class="preloader-bar"></div>
@@ -38,7 +36,7 @@
   <!-- FIXED NAVIGATION (1:1 Joakim Luxury 3-Point Layout) -->
   <header class="nav-wrapper">
     <div class="nav-container">
-      <!-- Left: Reserve Action (White & Underlined) -->
+      <!-- Left: Reserve Action (Underlined) -->
       <div class="nav-left">
         <a href="#reserve" class="nav-reserve-link">Reserve a Table</a>
       </div>
@@ -86,9 +84,9 @@
           <span class="menu-nav-num">02</span>
           <span class="menu-nav-title">Culinary Catalog</span>
         </a>
-        <a href="#gallery" class="menu-nav-item menu-link-gallery">
+        <a href="#breakdown" class="menu-nav-item menu-link-gallery">
           <span class="menu-nav-num">03</span>
-          <span class="menu-nav-title">Art Gallery & Architecture</span>
+          <span class="menu-nav-title">Service Breakdown</span>
         </a>
         <a href="contact.html" class="menu-nav-item menu-link-contact">
           <span class="menu-nav-num">04</span>
@@ -116,7 +114,7 @@
   <!-- MAIN WRAPPER -->
   <main id="main-content">
 
-    <!-- FULLSCREEN VISUAL STORYTELLING HERO (Joakim Experience) -->
+    <!-- SECTION 1: FULLSCREEN VISUAL STORYTELLING HERO -->
     <section class="section-hero" data-scroll-zoom>
       <!-- Fullscreen Background Image & Overlay -->
       <div class="hero-bg-container">
@@ -143,7 +141,7 @@
           </div>
 
           <div class="hero-cta-box">
-            <a href="#gallery" class="hero-cta-link hover-text">
+            <a href="#value-prop" class="hero-cta-link hover-text">
               <span class="top">Découvrir L'Expérience &rarr;</span>
               <span class="bottom">Explore The Sanctuary &rarr;</span>
             </a>
@@ -160,207 +158,330 @@
       </div>
     </section>
 
-    <!-- PINNED PHILOSOPHY SECTION (GSAP ScrollTrigger Reveal) -->
-    <section class="section-pinned">
-      <div class="container">
-        <div class="pinned-grid">
-          <div class="pinned-text-wrap">
-            <div class="pinned-badge">ARCHITECTURAL PHILOSOPHY</div>
-            <h2 class="heading-xl">
-              An oasis conceived for <span class="serif-italic">ideas, adda</span>, and natural elegance.
-            </h2>
-            <p style="font-size: 1.15rem; color: rgba(255,255,255,0.75); line-height: 1.8;">
-              Imagine being in a garden with wide open view of the sky, with works of art hanging amidst greenery and flora. The Courtyard doubles as an all-day coffee refuge and an intimate art gallery with a calming rock pool.
-            </p>
-            <div style="display: flex; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem;">
-              <div>
-                <div style="font-family: var(--font-serif); font-size: 2.25rem; color: var(--color-accent-gold);">100%</div>
-                <div class="tag-mono" style="color: rgba(255,255,255,0.6);">Natural Light Flow</div>
-              </div>
-              <div>
-                <div style="font-family: var(--font-serif); font-size: 2.25rem; color: var(--color-accent-gold);">30+</div>
-                <div class="tag-mono" style="color: rgba(255,255,255,0.6);">Artisanal Creations</div>
-              </div>
-              <div>
-                <div style="font-family: var(--font-serif); font-size: 2.25rem; color: var(--color-accent-gold);">&infin;</div>
-                <div class="tag-mono" style="color: rgba(255,255,255,0.6);">Timeless Adda</div>
+    <!-- SECTION 2: DUAL-STAGE PINNED SCROLL TRANSITION (VALUE PROP & GASTRONOMY) -->
+    <section class="section_2_home" id="value-prop">
+      <div class="scroll-container">
+        <div class="scroll-wrapper">
+
+          <!-- Sub-section 1: Value Proposition -->
+          <div class="section-1">
+            <div class="text-center-block anim-element">
+              <h2 class="heading-1-scroll">Receiving in serenity has never been so refined.</h2>
+            </div>
+            <div class="img-scroll anim-element">
+              <img loading="lazy" src="assets/images/courtyaard food.webp" alt="Artisanal Harvest Ingredients at The Courtyard" class="img-cover-2">
+            </div>
+            <div class="text-center-block-bottom anim-element">
+              <div class="text-brown">
+                The Courtyard proposes a contemporary, precise and sensitive cuisine, in the service of rare moments. Here, no standardized formulas: each menu, each service, each detail is adapted to your occasion, to your desires.<br><br>
+                Private dinner, confidential celebration, moment of exception with loved ones: fine gastronomy enters your world, without compromise.
               </div>
             </div>
           </div>
 
-          <div class="pinned-images-wrap" data-scroll-zoom>
-            <img src="assets/images/courtyard-place.jpg" alt="The Courtyard Dining Ambiance">
+          <!-- Sub-section 2: Culinary Philosophy & Living Heritage -->
+          <div class="section-2">
+            <div class="text-center-block anim-element">
+              <h2 class="heading-2-scroll">AN AUTEUR GASTRONOMY, ANCHORED IN LIVING HERITAGE.</h2>
+            </div>
+            <div class="img-scroll anim-element">
+              <img loading="lazy" src="assets/images/culinary-detail.webp" alt="Artisanal Plating at The Courtyard" class="img-cover-2">
+            </div>
+            <div class="text-center-block-bottom anim-element">
+              <div class="text-brown-2">
+                The cuisine of The Courtyard is distinguished by a respectful approach to raw ingredients and a continuous pursuit of harmony. Inspirations are diverse yet meticulously mastered: contemporary French technique, subtle Mediterranean balance, and reimagined Bengali classics.<br><br>
+                Every plate tells an unhurried story.
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- SIGNATURE DISHES SHOWCASE (SWIPER 11 CAROUSEL) -->
-    <section class="section-showcase">
+    <!-- SECTION 3: CORE PHILOSOPHY & ASYMMETRICAL SPATIAL FLOW -->
+    <section class="section_3_home" id="philosophy">
+      <div class="padding-global">
+        
+        <!-- Header Statement -->
+        <div class="top-title-sec-3">
+          <div class="left-title-sec-3">
+            <h2 class="heading-3"><em>The Courtyard</em></h2>
+          </div>
+          <div class="right-titel-sec-3">
+            <h2 class="heading-4">Takes complete care of the culinary journey, so that YOU can truly immerse with YOUR guests.</h2>
+          </div>
+        </div>
+
+        <!-- Asymmetric Right Block: Curated Operational Steps -->
+        <div class="right-img-sec-3-wrapper">
+          <div class="img-text-bloc">
+            <div class="img-1-sec-3-wrapper" data-scroll-zoom>
+              <img src="assets/images/courtyard-place.jpg" loading="lazy" alt="The Courtyard Hospitality Experience" class="img-cover-2">
+              <div class="mask-white"></div>
+            </div>
+            <div class="text-black">
+              Elaboration of bespoke menus in advance<br>
+              Direct sourcing of seasonal artisanal produce<br>
+              Live charcoal searing and open-hearth preparation<br>
+              Discreet, unhurried and attentive table service<br>
+              Complete care of the setting from twilight to late evening
+            </div>
+          </div>
+        </div>
+
+        <!-- Asymmetric Left Block: Narrative & CTA -->
+        <div class="left-img-sec-3-wrapper">
+          <div class="img-text-bloc-2">
+            <div class="img-2-sec-3wrapper" data-scroll-zoom>
+              <img src="assets/images/patio-rock-garden.jpg" loading="lazy" alt="Patio Rock Garden Sanctuary" class="img-cover-2">
+              <div class="mask-white"></div>
+            </div>
+            <div class="text-wrapper-2-sec-3">
+              <div class="text-black">
+                You welcome your guests, we orchestrate the rest.<br>
+                The dining experience becomes a serene, precise, and choreographed celebration of life.
+              </div>
+            </div>
+            <a href="about.html" class="cta-black w-inline-block">
+              <div class="gsap-cta">
+                <div class="hover-text black">
+                  <span class="line top">Discover The Sanctuary</span>
+                  <span class="line bottom">Discover The Sanctuary</span>
+                </div>
+              </div>
+              <div class="subline black"></div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: SERVICE BREAKDOWN (4-COLUMN FEATURE LIST) -->
+    <section class="section_service_breakdown" id="breakdown">
       <div class="container">
-        <div class="showcase-header">
+        
+        <div class="breakdown-header">
           <div>
-            <span class="tag-mono">GASTRONOMICAL CRAFT</span>
-            <h2 class="heading-lg" style="margin-top: 0.5rem;">
-              Signature <span class="serif-italic">Creations</span>
-            </h2>
+            <span class="tag-mono" style="color: var(--color-accent-gold);">SERVICE BREAKDOWN</span>
+            <h2 class="heading-lg" style="margin-top: 0.5rem;">Excellence in <span class="serif-italic">Four Movements</span></h2>
           </div>
-          <div class="showcase-nav-btns">
-            <button class="swiper-nav-btn swiper-nav-prev" aria-label="Previous Slide">&larr;</button>
-            <button class="swiper-nav-btn swiper-nav-next" aria-label="Next Slide">&rarr;</button>
+          <div class="breakdown-header-right">
+            <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.7;">
+              Every evening at The Courtyard is orchestrated as an unhurried, multisensory journey. From preliminary private consultation to candlelit post-dinner teas, our bespoke care remains effortless and complete.
+            </p>
+          </div>
+        </div>
+
+        <div class="breakdown-grid">
+          <!-- Step 01 -->
+          <div class="breakdown-col">
+            <div class="breakdown-num">01 / TASTINGS</div>
+            <h3 class="breakdown-title">Bespoke Curation</h3>
+            <p class="breakdown-desc">
+              Preliminary alignment to tailor multi-course tasting menus suited to your personal preferences, dietary nuances, and seasonal availability.
+            </p>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="breakdown-col">
+            <div class="breakdown-num">02 / SOURCING</div>
+            <h3 class="breakdown-title">Artisanal Harvest</h3>
+            <p class="breakdown-desc">
+              Daily hand-selection of indigenous herbs, wild tiger prawns, slow-aged meats, and botanical spices from trusted sustainable growers.
+            </p>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="breakdown-col">
+            <div class="breakdown-num">03 / SANCTUARY</div>
+            <h3 class="breakdown-title">Luminous Setting</h3>
+            <p class="breakdown-desc">
+              Natural overhead daylight transitioning into ambient candlelight beneath glass skylights, framed by lush flora and fine contemporary art.
+            </p>
+          </div>
+
+          <!-- Step 04 -->
+          <div class="breakdown-col">
+            <div class="breakdown-num">04 / HOSPITALITY</div>
+            <h3 class="breakdown-title">Dedicated Concierge</h3>
+            <p class="breakdown-desc">
+              Discreet sommelier tea pairing, seamless live course pacing, and complete attentiveness allowing you and your guests to share timeless adda.
+            </p>
           </div>
         </div>
 
-        <!-- Swiper Container -->
-        <div class="swiper">
-          <div class="swiper-wrapper">
-
-            <!-- Slide 1 -->
-            <div class="swiper-slide" data-scroll-zoom>
-              <img src="assets/images/kala-bhuna-beef.jpg" alt="Old Dhaka Kala Bhuna">
-              <div class="hover-slider-item">
-                <span class="dish-category">Heritage Reimagined</span>
-                <h3 class="dish-name">Old Dhaka Kala Bhuna</h3>
-                <p class="dish-desc">Slow-caramelized tender beef cuts braised with 18 aromatic spices, served alongside fragrant fragrant Jeera Rice.</p>
-                <div class="dish-price-row">
-                  <span>Chef's Masterpiece</span>
-                  <span>৳ 895</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="swiper-slide" data-scroll-zoom>
-              <img src="assets/images/dim-sum-fusion.jpg" alt="Fusion Dim Sum & Prawn Pockets">
-              <div class="hover-slider-item">
-                <span class="dish-category">Small Plates</span>
-                <h3 class="dish-name">Fusion Dim Sum Pockets</h3>
-                <p class="dish-desc">Delicate translucent steamed wrappers filled with wild tiger prawns, lemongrass, and scallion chili drizzle.</p>
-                <div class="dish-price-row">
-                  <span>Artisanal Basket</span>
-                  <span>৳ 545</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="swiper-slide" data-scroll-zoom>
-              <img src="assets/images/kebab-tandoor.jpg" alt="Courtyard Kebab Platter">
-              <div class="hover-slider-item">
-                <span class="dish-category">Live Charcoal</span>
-                <h3 class="dish-name">Royal Kebab Platter</h3>
-                <p class="dish-desc">Charcoal-grilled Chicken Malai kebabs, mutton seekh, and fish tikka with freshly baked clay-oven Tandoor Naan.</p>
-                <div class="dish-price-row">
-                  <span>Platter for Sharing</span>
-                  <span>৳ 1,250</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="swiper-slide" data-scroll-zoom>
-              <img src="assets/images/thai-noodle-bowl.jpg" alt="Szechuan & Thai Noodle Bowl">
-              <div class="hover-slider-item">
-                <span class="dish-category">Exotic Asian</span>
-                <h3 class="dish-name">Thai Basil Noodle Bowl</h3>
-                <p class="dish-desc">Wok-tossed hand-pulled noodles with charred garlic, bird's eye chili, sweet basil, and succulent chicken.</p>
-                <div class="dish-price-row">
-                  <span>Comfort Bowl</span>
-                  <span>৳ 620</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 5 -->
-            <div class="swiper-slide" data-scroll-zoom>
-              <img src="assets/images/waffle.jpg" alt="Belgian Waffles & Soft Serve">
-              <div class="hover-slider-item">
-                <span class="dish-category">Dessert Atelier</span>
-                <h3 class="dish-name">Belgian Pearl Sugar Waffle</h3>
-                <p class="dish-desc">Golden crisp Belgian waffle crowned with house pistachio kulfi, wild berry coulis, and chocolate ganache.</p>
-                <div class="dish-price-row">
-                  <span>Sweet Indulgence</span>
-                  <span>৳ 480</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 6 -->
-            <div class="swiper-slide" data-scroll-zoom>
-              <img src="assets/images/artisanal-mocktail.jpg" alt="Courtyard Signature Mocktail">
-              <div class="hover-slider-item">
-                <span class="dish-category">Botanical Bar</span>
-                <h3 class="dish-name">Yuzu & Mint Botanical Cooler</h3>
-                <p class="dish-desc">Clarified citrus infusion with crushed Moroccan mint, lemongrass soda, and sparkling cold-pressed botanicals.</p>
-                <div class="dish-price-row">
-                  <span>Signature Alchemy</span>
-                  <span>৳ 380</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- AMBIANCE & SANCTUARY GALLERY -->
-    <section class="section-ambiance" id="gallery">
+    <!-- SECTION 5: SIGNATURE SHOWCASE CAROUSEL (SWIPER 11) -->
+    <section class="section_slider_actualites" id="showcase">
       <div class="container">
-        <div style="text-align: center; max-width: 750px; margin: 0 auto;">
-          <span class="tag-mono">SPATIAL HARMONY</span>
-          <h2 class="heading-lg" style="margin-top: 0.5rem;">
-            A coalescence of <span class="serif-italic">space & purpose</span>
-          </h2>
-          <p style="margin-top: 1rem; color: var(--color-text-secondary);">
-            The Courtyard was engineered to transcend the chaotic rhythm of the city. Discover our curated zones designed for creative inspiration and serene gatherings.
-          </p>
-        </div>
+        <div class="slider-section">
 
-        <div class="ambiance-grid">
-          <div class="ambiance-card">
-            <div class="ambiance-img-wrap" data-scroll-zoom>
-              <img src="assets/images/courtyard-skylight.jpg" alt="The Skylight Pavilion">
+          <!-- Header & Navigation Arrows -->
+          <div class="title-slider">
+            <div class="left-title-slider">
+              <div>Gastronomical Craft &bull; Signature Repertoire</div>
             </div>
-            <div>
-              <span class="tag-mono">ZONE 01</span>
-              <h3 class="heading-md" style="margin: 0.3rem 0;">The Skylight Lounge</h3>
-              <p style="font-size: 0.9rem; color: var(--color-text-secondary);">
-                Expansive overhead glass architecture allowing dynamic daylight transitions from sunlit brunches to intimate candlelit evenings.
-              </p>
+            <div class="right-title-slider">
+              <h2 class="heading-6">Masterpieces of the courtyard</h2>
+              <div class="arrows-slider">
+                <button class="arrow-left" aria-label="Previous Slide">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="arrow-right" aria-label="Next Slide">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
             </div>
           </div>
 
-          <div class="ambiance-card">
-            <div class="ambiance-img-wrap" data-scroll-zoom>
-              <img src="assets/images/patio-rock-garden.jpg" alt="The Rock Garden Patio">
-            </div>
-            <div>
-              <span class="tag-mono">ZONE 02</span>
-              <h3 class="heading-md" style="margin: 0.3rem 0;">The Sculpture Garden</h3>
-              <p style="font-size: 0.9rem; color: var(--color-text-secondary);">
-                A landscaped, glass-covered patio featuring fine contemporary sculptures, lush flora, and a zen rock pool.
-              </p>
+          <!-- Swiper Container -->
+          <div class="swiper">
+            <div class="swiper-wrapper">
+
+              <!-- Slide 1 -->
+              <div class="swiper-slide">
+                <div class="img-slider-item" data-scroll-zoom>
+                  <img loading="lazy" src="assets/images/kala-bhuna-beef.jpg" alt="Old Dhaka Kala Bhuna">
+                </div>
+                <div class="hover-slider-item">
+                  <h3 class="heading-5">Old Dhaka Kala Bhuna</h3>
+                  <div class="content-hover-blog">
+                    <div>Slow-caramelized tender beef braised with 18 aromatic spices and fragrant Jeera rice.</div>
+                    <a href="menu.html" class="cta-green w-inline-block">
+                      <div class="gsap-cta">
+                        <div class="hover-text brown">
+                          <span class="line top">Discover Dish &bull; ৳ 895</span>
+                          <span class="line bottom">Discover Dish &bull; ৳ 895</span>
+                        </div>
+                      </div>
+                      <div class="subline brown"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="swiper-slide">
+                <div class="img-slider-item" data-scroll-zoom>
+                  <img loading="lazy" src="assets/images/dim-sum-fusion.jpg" alt="Fusion Dim Sum Pockets">
+                </div>
+                <div class="hover-slider-item">
+                  <h3 class="heading-5">Fusion Dim Sum Pockets</h3>
+                  <div class="content-hover-blog">
+                    <div>Translucent steamed wrappers filled with wild tiger prawns and lemongrass scallion drizzle.</div>
+                    <a href="menu.html" class="cta-green w-inline-block">
+                      <div class="gsap-cta">
+                        <div class="hover-text brown">
+                          <span class="line top">Discover Dish &bull; ৳ 545</span>
+                          <span class="line bottom">Discover Dish &bull; ৳ 545</span>
+                        </div>
+                      </div>
+                      <div class="subline brown"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="swiper-slide">
+                <div class="img-slider-item" data-scroll-zoom>
+                  <img loading="lazy" src="assets/images/kebab-tandoor.jpg" alt="Royal Kebab Platter">
+                </div>
+                <div class="hover-slider-item">
+                  <h3 class="heading-5">Royal Kebab Platter</h3>
+                  <div class="content-hover-blog">
+                    <div>Charcoal-grilled Chicken Malai, mutton seekh, and fish tikka with freshly baked clay-oven Naan.</div>
+                    <a href="menu.html" class="cta-green w-inline-block">
+                      <div class="gsap-cta">
+                        <div class="hover-text brown">
+                          <span class="line top">Discover Dish &bull; ৳ 1,250</span>
+                          <span class="line bottom">Discover Dish &bull; ৳ 1,250</span>
+                        </div>
+                      </div>
+                      <div class="subline brown"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="swiper-slide">
+                <div class="img-slider-item" data-scroll-zoom>
+                  <img loading="lazy" src="assets/images/thai-noodle-bowl.jpg" alt="Thai Basil Noodle Bowl">
+                </div>
+                <div class="hover-slider-item">
+                  <h3 class="heading-5">Thai Basil Noodle Bowl</h3>
+                  <div class="content-hover-blog">
+                    <div>Wok-tossed hand-pulled noodles with charred garlic, bird's eye chili, sweet basil, and chicken.</div>
+                    <a href="menu.html" class="cta-green w-inline-block">
+                      <div class="gsap-cta">
+                        <div class="hover-text brown">
+                          <span class="line top">Discover Dish &bull; ৳ 620</span>
+                          <span class="line bottom">Discover Dish &bull; ৳ 620</span>
+                        </div>
+                      </div>
+                      <div class="subline brown"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="swiper-slide">
+                <div class="img-slider-item" data-scroll-zoom>
+                  <img loading="lazy" src="assets/images/waffle.jpg" alt="Belgian Pearl Sugar Waffle">
+                </div>
+                <div class="hover-slider-item">
+                  <h3 class="heading-5">Belgian Pearl Waffle</h3>
+                  <div class="content-hover-blog">
+                    <div>Golden crisp Belgian waffle crowned with house pistachio kulfi and wild berry coulis.</div>
+                    <a href="menu.html" class="cta-green w-inline-block">
+                      <div class="gsap-cta">
+                        <div class="hover-text brown">
+                          <span class="line top">Discover Dish &bull; ৳ 480</span>
+                          <span class="line bottom">Discover Dish &bull; ৳ 480</span>
+                        </div>
+                      </div>
+                      <div class="subline brown"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 6 -->
+              <div class="swiper-slide">
+                <div class="img-slider-item" data-scroll-zoom>
+                  <img loading="lazy" src="assets/images/artisanal-mocktail.jpg" alt="Yuzu Botanical Cooler">
+                </div>
+                <div class="hover-slider-item">
+                  <h3 class="heading-5">Botanical Cooler</h3>
+                  <div class="content-hover-blog">
+                    <div>Clarified citrus infusion with crushed Moroccan mint, lemongrass soda, and botanicals.</div>
+                    <a href="menu.html" class="cta-green w-inline-block">
+                      <div class="gsap-cta">
+                        <div class="hover-text brown">
+                          <span class="line top">Discover Drink &bull; ৳ 380</span>
+                          <span class="line bottom">Discover Drink &bull; ৳ 380</span>
+                        </div>
+                      </div>
+                      <div class="subline brown"></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          <div class="ambiance-card">
-            <div class="ambiance-img-wrap" data-scroll-zoom>
-              <img src="assets/images/dining-lounge.jpg" alt="The Main Dining Room">
-            </div>
-            <div>
-              <span class="tag-mono">ZONE 03</span>
-              <h3 class="heading-md" style="margin: 0.3rem 0;">The Atelier & Cafe</h3>
-              <p style="font-size: 0.9rem; color: var(--color-text-secondary);">
-                Spacious seating tailored for deep conversations, book reading, artisanal espresso sipping, and extended gatherings.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- INTERACTIVE TABLE RESERVATION & PRIVATE DINING -->
+    <!-- SECTION 6: CONCIERGE & RESERVATIONS -->
     <section class="section-booking" id="reserve">
       <div class="container">
         <div class="booking-box">
@@ -444,55 +565,56 @@
 
   </main>
 
-  <!-- LUXURY FOOTER -->
+  <!-- SECTION 7: LUXURY FOOTER (Joakim Minimalist Architecture) -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <h3 class="heading-md">The Courtyard</h3>
-          <p style="margin-top: 0.75rem; color: rgba(255,255,255,0.6); max-width: 320px; font-size: 0.9rem;">
-            A multi-dimensional restaurant and art sanctuary celebrating culinary passion, natural lighting, and timeless gatherings.
-          </p>
+    <div class="padding-global">
+      <div class="bottom-footer">
+        
+        <!-- Left: Brand Description & Logo -->
+        <div class="column-footer-description">
+          <div class="link-footer">
+            And what if your next dinner became a moment of rare exception? Whether you have a precise vision or simply the desire to experience elevated gastronomy and serene art under the skylight, The Courtyard accompanies you at every step.
+          </div>
+          <svg class="logo_footer" viewBox="0 0 260 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="50%" y="40" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="44" fill="currentColor" letter-spacing="0.5">The Courtyard</text>
+          </svg>
         </div>
 
-        <div>
-          <span class="tag-mono" style="color: var(--color-accent-gold);">EXPLORE</span>
-          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem;">
-            <li><a href="index.html">Home Experience</a></li>
-            <li><a href="about.html">Story & Architecture</a></li>
-            <li><a href="menu.html">Culinary Menu</a></li>
-            <li><a href="contact.html">Private Dining & Events</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <span class="tag-mono" style="color: var(--color-accent-gold);">CONTACT</span>
-          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; font-family: var(--font-mono);">
-            <li>+88 0131 213 5588</li>
-            <li>info@thecourtyard.com.bd</li>
-            <li>Park Heights, Dhanmondi, Dhaka</li>
-          </ul>
-        </div>
-
-        <div>
-          <span class="tag-mono" style="color: var(--color-accent-gold);">OPENING HOURS</span>
-          <div style="margin-top: 1rem; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.7);">
-            <div>Sun &ndash; Thu: 12:00 PM &ndash; 11:00 PM</div>
-            <div>Fri &ndash; Sat: 09:00 AM &ndash; 11:00 PM</div>
+        <!-- Right: Multi-column Navigation -->
+        <div class="div-block-23">
+          <div class="column-footer">
+            <div class="column-footer-title">EXPLORE</div>
+            <a href="about.html" class="link-footer">The Sanctuary</a>
+            <a href="menu.html" class="link-footer">Culinary Catalog</a>
+            <a href="#breakdown" class="link-footer">Service Breakdown</a>
+            <a href="contact.html" class="link-footer">Private Dining</a>
+          </div>
+          <div class="column-footer">
+            <div class="column-footer-title">CONNECT</div>
+            <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener" class="link-footer">Instagram</a>
+            <a href="https://www.facebook.com/TheCourtyardatParkHeights" target="_blank" rel="noopener" class="link-footer">Facebook</a>
+            <a href="contact.html" class="link-footer">Contact Concierge</a>
+          </div>
+          <div class="column-footer">
+            <div class="column-footer-title">LOCATION & HOURS</div>
+            <div class="link-footer" style="color: rgba(255,255,255,0.85);">PARK HEIGHTS, DHANMONDI</div>
+            <a href="tel:+8801312135588" class="link-footer">+88 0131 213 5588</a>
+            <a href="mailto:info@thecourtyard.com.bd" class="link-footer">info@thecourtyard.com.bd</a>
+            <a href="#reserve" class="link-footer" style="color: var(--color-accent-gold); margin-top: 0.5rem; text-decoration: underline;">RESERVE A TABLE &rarr;</a>
           </div>
         </div>
+
       </div>
 
-      <!-- Monumental Typography -->
+      <!-- Watermark Brand Title -->
       <div class="footer-big-title">THE COURTYARD</div>
 
-      <div class="footer-bottom">
-        <div>&copy; 2026 The Courtyard at Park Heights. All Rights Reserved.</div>
-        <div style="display: flex; gap: 2rem;">
-          <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.facebook.com/TheCourtyardatParkHeights" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://maps.app.goo.gl" target="_blank" rel="noopener">Google Maps</a>
-        </div>
+      <!-- Copyright Bar -->
+      <div class="copyright">
+        <div class="item-copyright">Copyright &copy; 2026 The Courtyard at Park Heights.</div>
+        <div class="item-copyright"><a href="#">Legal Notice</a></div>
+        <div class="item-copyright"><a href="#">Data Protection Policy</a></div>
+        <div class="item-copyright"><a href="#">Curated in Dhaka, Bangladesh</a></div>
       </div>
     </div>
   </footer>
