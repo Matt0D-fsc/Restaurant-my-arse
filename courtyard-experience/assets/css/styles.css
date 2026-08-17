@@ -27,7 +27,7 @@
   --brand-color--light-brown: rgb(155, 124, 109);
   --brand-color--dark-brown: #553D34;
   --brand-color--light-blue: rgb(216, 225, 235);
-  --brand-color--dark-blue: #6D7E90;
+  --brand-color--dark-blue: #324960;
   --brand-color--light-green: #BFC5AF;
   --brand-color--pure-white: #FFFFFF;
   --brand-color--pure-black: #12100E;
@@ -972,6 +972,16 @@ ul, ol {
   object-position: center center;
   image-rendering: -webkit-optimize-contrast;
   filter: brightness(0.98) contrast(1.04) saturate(1.06);
+}
+
+.section-2 .img-scroll {
+  box-shadow: 0 24px 50px rgba(28, 46, 68, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.section-2 .img-cover-2 {
+  object-position: 40% center;
+  filter: brightness(1.02) contrast(1.06) saturate(1.08);
 }
 
 .text-center-block-bottom {
