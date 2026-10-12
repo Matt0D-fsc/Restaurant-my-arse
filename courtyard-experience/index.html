@@ -3,194 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Courtyard at Park Heights | Fine Casual, Art & Gastronomy</title>
-  <meta name="description" content="A sanctuary of culinary artistry and tranquility in Dhanmondi, Dhaka. Reimagined Bengali classics, fusion Dim Sum, kebabs, and landscaped art gallery patio.">
+  <title>The Courtyard at Park Heights | Food, Art &amp; Passion in Dhanmondi</title>
+  <meta name="description" content="An all-day kitchen, coffee house and sculpture garden under a glass roof in Dhanmondi, Dhaka. Breakfast Fri–Sat, Happy Hour 4–6 PM, charcoal kebabs from 5 PM.">
   <link rel="shortcut icon" href="assets/images/courtyard-logo.png" type="image/x-icon">
 
-  <!-- Core Stylesheets -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/animations.css">
 
-  <!-- GSAP & Lenis CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
 
-  <!-- PAGE PRELOADER (Quiet Luxury Signature Stage) -->
+  <!-- PRELOADER -->
   <div class="preloader">
     <div class="preloader-content">
       <div class="preloader-logo-stage" id="preloader-logo-container">
         <span class="preloader-signature-text">The Courtyard</span>
       </div>
       <div class="tag-mono preloader-location" style="letter-spacing: 0.2em;">PARK HEIGHTS &bull; DHANMONDI</div>
-      <div class="preloader-bar-wrap">
-        <div class="preloader-bar"></div>
-      </div>
+      <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
     </div>
   </div>
 
-  <!-- FIXED NAVIGATION (1:1 Joakim Luxury 3-Point Layout) -->
+  <!-- NAV: reserve · ring logo · menu -->
   <header class="nav-wrapper">
     <div class="nav-container">
-      <!-- Left: Reserve Action (Underlined) -->
       <div class="nav-left">
-        <a href="#reserve" class="nav-reserve-link">Reserve a Table</a>
+        <a href="#reserve" class="nav-reserve-link">Reserve a table</a>
       </div>
-
-      <!-- Center: Visual Signature Brand Logo -->
-      <a href="index.html" class="nav-brand-center" aria-label="The Courtyard Home">
-        <svg class="nav-signature-svg" viewBox="0 0 260 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="50%" y="40" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="44" fill="currentColor" letter-spacing="0.5">The Courtyard</text>
-        </svg>
+      <a href="index.html" class="nav-brand-center ring-logo" aria-label="The Courtyard at Park Heights, home">
+        <span class="ring-mark" aria-hidden="true"></span>
+        <span class="ring-text"><small>The</small>Courtyard<em>at Park Heights</em></span>
       </a>
-
-      <!-- Right: Plain Text MENU Button -->
       <div class="nav-right">
-        <button class="nav-menu-plain" aria-label="Open Navigation Menu">MENU</button>
+        <button class="nav-menu-plain" aria-label="Open navigation menu">Menu</button>
       </div>
     </div>
   </header>
 
-  <!-- FULLSCREEN DYNAMIC MENU DRAWER -->
-  <div class="menu-fullscreen">
-    <!-- Dynamic Background Image Crossfaders -->
-    <div class="menu-bg-images">
-      <img src="assets/images/ambiance-patio.webp" alt="" class="menu-bg-img img-cover-base">
-      <img src="assets/images/patio-rock-garden.jpg" alt="" class="menu-bg-img img-cover-exp">
-      <img src="assets/images/culinary-detail.webp" alt="" class="menu-bg-img img-cover-menu">
-      <img src="assets/images/courtyard-skylight.jpg" alt="" class="menu-bg-img img-cover-gallery">
-      <img src="assets/images/table-service.webp" alt="" class="menu-bg-img img-cover-contact">
-    </div>
-    <div class="menu-bg-overlay"></div>
-
+  <!-- MENU OVERLAY (Joakim: flat colour, plain serif links; ours: the photo sits in a circle) -->
+  <div class="menu-fullscreen" aria-hidden="true">
     <div class="menu-fullscreen-content">
       <div class="menu-header">
-        <div class="menu-header-logo">The Courtyard</div>
-        <button class="burger-menu-close">
-          <span>Close &times;</span>
-        </button>
+        <a href="#reserve" class="nav-reserve-link" data-close>Reserve a table</a>
+        <a href="index.html" class="ring-logo" aria-label="Home">
+          <span class="ring-mark" aria-hidden="true"></span>
+          <span class="ring-text"><small>The</small>Courtyard<em>at Park Heights</em></span>
+        </a>
+        <button class="burger-menu-close">Close</button>
       </div>
 
-      <div class="menu-nav-links">
-        <a href="about.html" class="menu-nav-item menu-link-exp">
-          <span class="menu-nav-num">01</span>
-          <span class="menu-nav-title">The Sanctuary & Patio</span>
-        </a>
-        <a href="menu.html" class="menu-nav-item menu-link-menu">
-          <span class="menu-nav-num">02</span>
-          <span class="menu-nav-title">Culinary Catalog</span>
-        </a>
-        <a href="#breakdown" class="menu-nav-item menu-link-gallery">
-          <span class="menu-nav-num">03</span>
-          <span class="menu-nav-title">Service Breakdown</span>
-        </a>
-        <a href="contact.html" class="menu-nav-item menu-link-contact">
-          <span class="menu-nav-num">04</span>
-          <span class="menu-nav-title">Reservations & Concierge</span>
-        </a>
-      </div>
-
-      <div class="menu-footer">
-        <div>
-          <div>Park Heights, Dhanmondi, Dhaka, Bangladesh</div>
-          <div style="margin-top: 0.25rem;">Sun–Thu 12PM–11PM | Fri–Sat 9AM–11PM</div>
-        </div>
-        <div>
-          <div>Phone: +88 0131 213 5588</div>
-          <div>Email: info@thecourtyard.com.bd</div>
-        </div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener">Instagram &rarr;</a>
-          <a href="https://www.facebook.com/TheCourtyardatParkHeights" target="_blank" rel="noopener">Facebook &rarr;</a>
+      <div class="menu-body">
+        <nav class="menu-nav-links" aria-label="Main">
+          <a href="about.html" class="menu-nav-item" data-bg="#BFC5AF" data-img="assets/images/courtyard-place-3.jpg">The Place</a>
+          <a href="menu.html" class="menu-nav-item" data-bg="#E7D3C1" data-img="assets/images/courtyaard food.webp">The Menu</a>
+          <a href="#whats-on" class="menu-nav-item" data-bg="#D8E1EB" data-img="assets/images/artisanal-mocktail.jpg" data-close>What's On</a>
+          <a href="contact.html" class="menu-nav-item" data-bg="#EAE2DF" data-img="assets/images/courtyard.jpg">Contact</a>
+        </nav>
+        <div class="menu-aside">
+          <div class="menu-contact">
+            <a href="tel:+8801312135588">+880 1312 135588</a>
+            <a href="mailto:info@thecourtyard.com.bd">info@thecourtyard.com.bd</a>
+            <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <div class="menu-circle"><img src="assets/images/courtyard-skylight.jpg" alt="" data-menu-img></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MAIN WRAPPER -->
   <main id="main-content">
 
-    <!-- SECTION 1: FULLSCREEN VISUAL STORYTELLING HERO -->
-    <section class="section-hero" data-scroll-zoom>
-      <!-- Fullscreen Background Image & Overlay -->
-      <div class="hero-bg-container">
-        <img src="assets/images/chef-plating.webp" alt="Artisanal Culinary Plating" class="hero-bg-img">
+    <!-- 1 · HERO — the photo closes into a circle as you scroll: the ring -->
+    <section class="section-hero" data-hero data-theme="espresso">
+      <div class="hero-bg-container" data-hero-frame>
+        <img src="assets/images/courtyard.jpg" alt="The dining hall of The Courtyard under its glass roof" class="hero-bg-img">
         <div class="hero-bg-overlay"></div>
       </div>
+      <img src="assets/images/courtyard-ring-orange.svg" alt="" class="hero-ring" data-hero-ring aria-hidden="true">
 
-      <!-- 3-Column Storytelling Hero Content -->
-      <div class="hero-story-container">
-        <!-- Left: Dossier Note with Typewriter Effect -->
+      <div class="hero-story-container" data-hero-copy>
         <div class="hero-story-left">
           <div class="hero-typewriter-wrap">
-            <span class="hero-typewriter-text" data-typewriter-text="FINE CASUAL & ART, THE COURTYARD IMAGINES AND CRAFTS BESPOKE CULINARY EXPERIENCES, IN DHANMONDI, DHAKA."></span>
-            <span class="typewriter-cursor"></span>
+            <span class="hero-typewriter-text" data-typewriter-text="An all-day kitchen, coffee house and sculpture garden, under one glass roof in Dhanmondi."></span>
           </div>
         </div>
-
-        <!-- Center: Monumental Headline with Masked Line Reveal & CTA -->
         <div class="hero-story-center">
           <div class="hero-center-headline">
-            <div class="reveal-line-wrap"><h1 class="reveal-line">AN ETHEREAL</h1></div>
-            <div class="reveal-line-wrap"><h1 class="reveal-line">GASTRONOMIC SANCTUARY,</h1></div>
-            <div class="reveal-line-wrap"><h1 class="reveal-line serif-italic">FOR SOUL & ADDA.</h1></div>
-          </div>
-
-          <div class="hero-cta-box">
-            <a href="#value-prop" class="hero-cta-link hover-text">
-              <span class="top">Découvrir L'Expérience &rarr;</span>
-              <span class="bottom">Explore The Sanctuary &rarr;</span>
-            </a>
-            <div class="hero-cta-underline"></div>
+            <div class="reveal-line-wrap"><h1 class="reveal-line">Food, art &amp; passion,</h1></div>
+            <div class="reveal-line-wrap"><span class="reveal-line">under the glass.</span></div>
           </div>
         </div>
-
-        <!-- Right: Atmosphere Note with Blur-to-Focus Drift -->
         <div class="hero-story-right">
           <div class="hero-blur-text">
-            EVERY MOMENT IS CONCEIVED AS AN UNHURRIED SANCTUARY, WHERE REIMAGINED GASTRONOMY MEETS NATURAL LUMINESCENCE.
+            Every visit is made for lingering: one cup of coffee that quietly turns into three.
           </div>
         </div>
       </div>
+      <!-- Place settings: plates laid around the ring as it closes -->
+      <div class="place-settings" aria-hidden="true">
+        <div class="setting" style="--x:17%;--y:27%;--s:150px"><img src="assets/images/dim-sum-fusion.jpg" alt=""></div>
+        <div class="setting" style="--x:84%;--y:24%;--s:118px"><img src="assets/images/greek-chicken.jpg" alt=""></div>
+        <div class="setting" style="--x:12%;--y:73%;--s:108px"><img src="assets/images/waffle.jpg" alt=""></div>
+        <div class="setting" style="--x:57%;--y:89%;--s:84px"><img src="assets/images/artisanal-mocktail.jpg" alt=""></div>
+      </div>
+
+      <!-- Live corners (Dhaka time) -->
+      <p class="hero-corner hero-corner-left tag-mono"><i class="live-dot" data-open-dot></i><span data-open-text>Park Heights &middot; Dhanmondi</span></p>
+      <p class="hero-corner hero-corner-right tag-mono" data-happy-text>Happy Hour &middot; 4&ndash;6 PM daily</p>
     </section>
 
-    <!-- SECTION 2: DUAL-STAGE PINNED SCROLL TRANSITION (VALUE PROP & GASTRONOMY) -->
+    <!-- The plate that travels from the hero into section 2 -->
+    <div class="traveller" data-traveller aria-hidden="true"><img src="assets/images/courtyaard food.webp" alt=""></div>
+
+    <!-- 2 · DUAL-STAGE PINNED SCROLL (Joakim) — images revealed as circles -->
     <section class="section_2_home" id="value-prop">
       <div class="scroll-container">
         <div class="scroll-wrapper">
 
-          <!-- Sub-section 1: Value Proposition -->
           <div class="section-1">
             <div class="text-center-block anim-element">
-              <h2 class="heading-1-scroll">Receiving in serenity has never been so refined.</h2>
+              <h2 class="heading-1-scroll">Adda has never tasted this good.</h2>
             </div>
             <div class="img-scroll anim-element">
-              <img loading="lazy" src="assets/images/courtyaard food.webp" alt="Artisanal Harvest Ingredients at The Courtyard" class="img-cover-2">
+              <img loading="lazy" src="assets/images/courtyaard food.webp" alt="Beef rice bowl with a fried egg" class="img-cover-2">
             </div>
             <div class="text-center-block-bottom anim-element">
               <div class="text-brown">
-                The Courtyard proposes a contemporary, precise and sensitive cuisine, in the service of rare moments. Here, no standardized formulas: each menu, each service, each detail is adapted to your occasion, to your desires.<br><br>
-                Private dinner, confidential celebration, moment of exception with loved ones: fine gastronomy enters your world, without compromise.
+                Start with Bengali street food served with a twist, or fusion dim sum. Move on to noodle bowls with a proper touch of Thai and Szechuan.<br><br>
+                And when only comfort will do: continental classics, or Old Dhaka's Kala Bhuna with jeera rice.
               </div>
             </div>
           </div>
 
-          <!-- Sub-section 2: Culinary Philosophy & Living Heritage -->
           <div class="section-2">
             <div class="text-center-block anim-element">
-              <h2 class="heading-2-scroll">AN AUTEUR GASTRONOMY, ANCHORED IN LIVING HERITAGE.</h2>
+              <h2 class="heading-2-scroll">A glass roof, a rock garden, and nowhere to be.</h2>
             </div>
             <div class="img-scroll anim-element">
-              <img loading="lazy" src="assets/images/park-heights-feature-photo-the-courtyard-at-park-heights-mehedi-hasan-25.webp" alt="Signature Courtyard Gastronomy" class="img-cover-2">
+              <img loading="lazy" src="assets/images/courtyard-place-3.jpg" alt="The rock-garden patio with lanterns" class="img-cover-2">
             </div>
             <div class="text-center-block-bottom anim-element">
               <div class="text-brown-2">
-                The cuisine of The Courtyard is distinguished by a respectful approach to raw ingredients and a continuous pursuit of harmony. Inspirations are diverse yet meticulously mastered: contemporary French technique, subtle Mediterranean balance, and reimagined Bengali classics.<br><br>
-                Every plate tells an unhurried story.
+                Daylight pours into the dining hall. Beyond it, a landscaped, glass-covered patio doubles as a sculpture gallery around a rock garden.<br><br>
+                A watering hole from the city's chaotic streets.
               </div>
             </div>
           </div>
@@ -199,438 +159,231 @@
       </div>
     </section>
 
-    <!-- SECTION 3: CORE PHILOSOPHY & ASYMMETRICAL SPATIAL FLOW -->
-    <section class="section_3_home" id="philosophy">
-      <div class="padding-global">
-        
-        <!-- Header Statement -->
+    <!-- 3 · ASYMMETRIC (Joakim) — photos cut as arches, like the curved roof -->
+    <section class="section_3_home" id="the-place" data-theme="cream">
+      <div class="padding-global sec3-inner">
+        <!-- Day dial: a ring-shaped clock; the hand sweeps the day as you scroll -->
+        <div class="day-dial" data-dial aria-hidden="true">
+          <svg viewBox="-200 -200 400 400">
+            <circle r="168" class="dial-ring"/>
+            <circle r="150" class="dial-ring thin"/>
+            <g class="dial-ticks"></g>
+            <g class="dial-events"></g>
+            <line y2="-128" class="dial-hand" data-dial-hand/>
+            <circle r="5" class="dial-pin"/>
+          </svg>
+          <div class="dial-readout"><span data-dial-time>9:00 AM</span><small data-dial-event>Breakfast</small></div>
+        </div>
         <div class="top-title-sec-3">
-          <div class="left-title-sec-3">
-            <h2 class="heading-3"><em>The Courtyard</em></h2>
-          </div>
+          <div class="left-title-sec-3"><h2 class="heading-3"><em>The Courtyard</em></h2></div>
           <div class="right-titel-sec-3">
-            <h2 class="heading-4">Takes complete care of the culinary journey, so that YOU can truly immerse with YOUR guests.</h2>
+            <h2 class="heading-4">Takes care of the whole afternoon, so you can stay for one more cup.</h2>
           </div>
         </div>
 
-        <!-- Asymmetric Right Block: Curated Operational Steps -->
         <div class="right-img-sec-3-wrapper">
           <div class="img-text-bloc">
-            <div class="img-1-sec-3-wrapper" data-scroll-zoom>
-              <img src="assets/images/courtyard-place.jpg" loading="lazy" alt="The Courtyard Hospitality Experience" class="img-cover-2">
-              <div class="mask-white"></div>
+            <div class="img-1-sec-3-wrapper arch" data-arch data-cursor="The glass">
+              <img src="assets/images/courtyard-skylight.jpg" loading="lazy" alt="The curved glass skylight" class="img-cover-2">
             </div>
-            <div class="text-black">
-              Elaboration of bespoke menus in advance<br>
-              Direct sourcing of seasonal artisanal produce<br>
-              Live charcoal searing and open-hearth preparation<br>
-              Discreet, unhurried and attentive table service<br>
-              Complete care of the setting from twilight to late evening
+            <div class="text-black hour-list">
+              <span class="hour-line" data-at="9" data-preview="assets/images/waffle.jpg">Breakfast on Fridays &amp; Saturdays from 9 AM</span>
+              <span class="hour-line" data-at="12" data-preview="assets/images/artisan-coffee.jpg">Coffee from noon, every day</span>
+              <span class="hour-line" data-at="16" data-preview="assets/images/artisanal-mocktail.jpg">Happy Hour from 4 to 6 PM</span>
+              <span class="hour-line" data-at="17" data-preview="assets/images/kebab-tandoor.jpg">Charcoal kebabs from 5 PM</span>
+              <span class="hour-line" data-at="22.5" data-preview="assets/images/courtyard.jpg">Last orders at 10:30 PM</span>
             </div>
           </div>
         </div>
 
-        <!-- Asymmetric Left Block: Narrative & CTA -->
         <div class="left-img-sec-3-wrapper">
           <div class="img-text-bloc-2">
-            <div class="img-2-sec-3wrapper" data-scroll-zoom>
-              <img src="assets/images/patio-rock-garden.jpg" loading="lazy" alt="Patio Rock Garden Sanctuary" class="img-cover-2">
-              <div class="mask-white"></div>
+            <div class="img-2-sec-3wrapper arch" data-arch data-cursor="The kitchen">
+              <img src="assets/images/courtyard-place.jpg" loading="lazy" alt="The neon Food Art Passion wall and open kitchen" class="img-cover-2">
             </div>
             <div class="text-wrapper-2-sec-3">
               <div class="text-black">
-                You welcome your guests, we orchestrate the rest.<br>
-                The dining experience becomes a serene, precise, and choreographed celebration of life.
+                You bring the conversation, we handle the rest.<br>
+                From the first latte to the last kebab, the kitchen keeps pace with your evening.
               </div>
             </div>
-            <a href="about.html" class="cta-black w-inline-block">
-              <div class="gsap-cta">
-                <div class="hover-text black">
-                  <span class="line top">Discover The Sanctuary</span>
-                  <span class="line bottom">Discover The Sanctuary</span>
-                </div>
+            <a href="about.html" class="cta-black">
+              <div class="hover-text black">
+                <span class="line top">Discover the place</span>
+                <span class="line bottom">Discover the place</span>
               </div>
               <div class="subline black"></div>
             </a>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION 4: SERVICE BREAKDOWN (4-COLUMN FEATURE LIST) -->
-    <section class="section_service_breakdown" id="breakdown">
-      <div class="container">
-        
-        <div class="breakdown-header">
-          <div>
-            <span class="tag-mono" style="color: var(--color-accent-gold);">SERVICE BREAKDOWN</span>
-            <h2 class="heading-lg" style="margin-top: 0.5rem;">Excellence in <span class="serif-italic">Four Movements</span></h2>
-          </div>
-          <div class="breakdown-header-right">
-            <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.7;">
-              Every evening at The Courtyard is orchestrated as an unhurried, multisensory journey. From preliminary private consultation to candlelit post-dinner teas, our bespoke care remains effortless and complete.
-            </p>
-          </div>
-        </div>
-
-        <div class="breakdown-grid">
-          <!-- Step 01 -->
-          <div class="breakdown-col">
-            <div class="breakdown-num">01 / TASTINGS</div>
-            <h3 class="breakdown-title">Bespoke Curation</h3>
-            <p class="breakdown-desc">
-              Preliminary alignment to tailor multi-course tasting menus suited to your personal preferences, dietary nuances, and seasonal availability.
-            </p>
-          </div>
-
-          <!-- Step 02 -->
-          <div class="breakdown-col">
-            <div class="breakdown-num">02 / SOURCING</div>
-            <h3 class="breakdown-title">Artisanal Harvest</h3>
-            <p class="breakdown-desc">
-              Daily hand-selection of indigenous herbs, wild tiger prawns, slow-aged meats, and botanical spices from trusted sustainable growers.
-            </p>
-          </div>
-
-          <!-- Step 03 -->
-          <div class="breakdown-col">
-            <div class="breakdown-num">03 / SANCTUARY</div>
-            <h3 class="breakdown-title">Luminous Setting</h3>
-            <p class="breakdown-desc">
-              Natural overhead daylight transitioning into ambient candlelight beneath glass skylights, framed by lush flora and fine contemporary art.
-            </p>
-          </div>
-
-          <!-- Step 04 -->
-          <div class="breakdown-col">
-            <div class="breakdown-num">04 / HOSPITALITY</div>
-            <h3 class="breakdown-title">Dedicated Concierge</h3>
-            <p class="breakdown-desc">
-              Discreet sommelier tea pairing, seamless live course pacing, and complete attentiveness allowing you and your guests to share timeless adda.
-            </p>
-          </div>
-        </div>
-
+    <!-- Velocity marquee: speeds up and leans with your scroll -->
+    <div class="marquee-band" data-theme="espresso" data-marquee aria-hidden="true">
+      <div class="marquee-track">
+        <span>Food</span><i class="ring-glyph"></i><span><em>Art</em></span><i class="ring-glyph"></i><span>Passion</span><i class="ring-glyph"></i><span><em>under the glass</em></span><i class="ring-glyph"></i>
       </div>
-    </section>
+    </div>
 
-    <!-- SECTION 5: SIGNATURE SHOWCASE CAROUSEL (SWIPER 11) -->
-    <section class="section_slider_actualites" id="showcase">
-      <div class="container">
-        <div class="slider-section">
-
-          <!-- Header & Navigation Arrows -->
-          <div class="title-slider">
-            <div class="left-title-slider">
-              <div>Gastronomical Craft &bull; Signature Repertoire</div>
-            </div>
-            <div class="right-title-slider">
-              <h2 class="heading-6">Masterpieces of the courtyard</h2>
-              <div class="arrows-slider">
-                <button class="arrow-left" aria-label="Previous Slide">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                <button class="arrow-right" aria-label="Next Slide">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Swiper Container -->
-          <div class="swiper">
-            <div class="swiper-wrapper">
-
-              <!-- Slide 1 -->
-              <div class="swiper-slide">
-                <div class="img-slider-item" data-scroll-zoom>
-                  <img loading="lazy" src="assets/images/kala-bhuna-beef.jpg" alt="Old Dhaka Kala Bhuna">
-                </div>
-                <div class="hover-slider-item">
-                  <h3 class="heading-5">Old Dhaka Kala Bhuna</h3>
-                  <div class="content-hover-blog">
-                    <div>Slow-caramelized tender beef braised with 18 aromatic spices and fragrant Jeera rice.</div>
-                    <a href="menu.html" class="cta-green w-inline-block">
-                      <div class="gsap-cta">
-                        <div class="hover-text brown">
-                          <span class="line top">Discover Dish &bull; ৳ 895</span>
-                          <span class="line bottom">Discover Dish &bull; ৳ 895</span>
-                        </div>
-                      </div>
-                      <div class="subline brown"></div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 2 -->
-              <div class="swiper-slide">
-                <div class="img-slider-item" data-scroll-zoom>
-                  <img loading="lazy" src="assets/images/dim-sum-fusion.jpg" alt="Fusion Dim Sum Pockets">
-                </div>
-                <div class="hover-slider-item">
-                  <h3 class="heading-5">Fusion Dim Sum Pockets</h3>
-                  <div class="content-hover-blog">
-                    <div>Translucent steamed wrappers filled with wild tiger prawns and lemongrass scallion drizzle.</div>
-                    <a href="menu.html" class="cta-green w-inline-block">
-                      <div class="gsap-cta">
-                        <div class="hover-text brown">
-                          <span class="line top">Discover Dish &bull; ৳ 545</span>
-                          <span class="line bottom">Discover Dish &bull; ৳ 545</span>
-                        </div>
-                      </div>
-                      <div class="subline brown"></div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 3 -->
-              <div class="swiper-slide">
-                <div class="img-slider-item" data-scroll-zoom>
-                  <img loading="lazy" src="assets/images/kebab-tandoor.jpg" alt="Royal Kebab Platter">
-                </div>
-                <div class="hover-slider-item">
-                  <h3 class="heading-5">Royal Kebab Platter</h3>
-                  <div class="content-hover-blog">
-                    <div>Charcoal-grilled Chicken Malai, mutton seekh, and fish tikka with freshly baked clay-oven Naan.</div>
-                    <a href="menu.html" class="cta-green w-inline-block">
-                      <div class="gsap-cta">
-                        <div class="hover-text brown">
-                          <span class="line top">Discover Dish &bull; ৳ 1,250</span>
-                          <span class="line bottom">Discover Dish &bull; ৳ 1,250</span>
-                        </div>
-                      </div>
-                      <div class="subline brown"></div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 4 -->
-              <div class="swiper-slide">
-                <div class="img-slider-item" data-scroll-zoom>
-                  <img loading="lazy" src="assets/images/thai-noodle-bowl.jpg" alt="Thai Basil Noodle Bowl">
-                </div>
-                <div class="hover-slider-item">
-                  <h3 class="heading-5">Thai Basil Noodle Bowl</h3>
-                  <div class="content-hover-blog">
-                    <div>Wok-tossed hand-pulled noodles with charred garlic, bird's eye chili, sweet basil, and chicken.</div>
-                    <a href="menu.html" class="cta-green w-inline-block">
-                      <div class="gsap-cta">
-                        <div class="hover-text brown">
-                          <span class="line top">Discover Dish &bull; ৳ 620</span>
-                          <span class="line bottom">Discover Dish &bull; ৳ 620</span>
-                        </div>
-                      </div>
-                      <div class="subline brown"></div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 5 -->
-              <div class="swiper-slide">
-                <div class="img-slider-item" data-scroll-zoom>
-                  <img loading="lazy" src="assets/images/waffle.jpg" alt="Belgian Pearl Sugar Waffle">
-                </div>
-                <div class="hover-slider-item">
-                  <h3 class="heading-5">Belgian Pearl Waffle</h3>
-                  <div class="content-hover-blog">
-                    <div>Golden crisp Belgian waffle crowned with house pistachio kulfi and wild berry coulis.</div>
-                    <a href="menu.html" class="cta-green w-inline-block">
-                      <div class="gsap-cta">
-                        <div class="hover-text brown">
-                          <span class="line top">Discover Dish &bull; ৳ 480</span>
-                          <span class="line bottom">Discover Dish &bull; ৳ 480</span>
-                        </div>
-                      </div>
-                      <div class="subline brown"></div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 6 -->
-              <div class="swiper-slide">
-                <div class="img-slider-item" data-scroll-zoom>
-                  <img loading="lazy" src="assets/images/artisanal-mocktail.jpg" alt="Yuzu Botanical Cooler">
-                </div>
-                <div class="hover-slider-item">
-                  <h3 class="heading-5">Botanical Cooler</h3>
-                  <div class="content-hover-blog">
-                    <div>Clarified citrus infusion with crushed Moroccan mint, lemongrass soda, and botanicals.</div>
-                    <a href="menu.html" class="cta-green w-inline-block">
-                      <div class="gsap-cta">
-                        <div class="hover-text brown">
-                          <span class="line top">Discover Drink &bull; ৳ 380</span>
-                          <span class="line bottom">Discover Drink &bull; ৳ 380</span>
-                        </div>
-                      </div>
-                      <div class="subline brown"></div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
+    <!-- 4 · PLATES — circles that turn like plates; hover shows what's on them (ingredients are placeholders: confirm with the kitchen) -->
+    <section class="section_plates" id="plates" data-theme="espresso">
+      <div class="plates-pin">
+        <div class="plates-head padding-global">
+          <div class="left-title-slider">From the kitchen &middot;<br>twenty-five sections, a few favourites</div>
+          <h2 class="heading-6">Plates worth the traffic.</h2>
+        </div>
+        <div class="plates-track" data-plates>
+          <figure class="plate"><div class="plate-img" data-ingredients="Prawn · Chicken · Tom yum · Szechuan beef · Chilli oil ·"><img src="assets/images/dim-sum-fusion.jpg" alt="Dim sum" loading="lazy"></div><figcaption><span>Dim Sum Platter</span><span>৳ 975</span></figcaption></figure>
+          <figure class="plate"><div class="plate-img" data-ingredients="Oregano · Lemon · Garlic · Tzatziki · Two sides ·"><img src="assets/images/greek-chicken.jpg" alt="Grilled Greek chicken" loading="lazy"></div><figcaption><span>Grilled Greek Chicken</span><span>৳ 685</span></figcaption></figure>
+          <figure class="plate"><div class="plate-img" data-ingredients="Chicken tikka · Madrasi · Beef chapli · Parata ·"><img src="assets/images/kebab-tandoor.jpg" alt="Kebab platter" loading="lazy"></div><figcaption><span>Kebab Platter</span><span>৳ 995</span></figcaption></figure>
+          <figure class="plate"><div class="plate-img" data-ingredients="Slow beef · Bok choy · Soft egg · Clear broth ·"><img src="assets/images/park-heights-feature-photo-the-courtyard-at-park-heights-mehedi-hasan-25.webp" alt="Beef noodle soup" loading="lazy"></div><figcaption><span>Beef Noodle Soup</span><span>৳ 625</span></figcaption></figure>
+          <figure class="plate"><div class="plate-img" data-ingredients="Lemongrass · Galangal · Lime leaf · Bird’s eye chilli ·"><img src="assets/images/thai-noodle-bowl.jpg" alt="Tom yum noodle bowl" loading="lazy"></div><figcaption><span>Spicy Thai Soup</span><span>৳ 495</span></figcaption></figure>
+          <figure class="plate"><div class="plate-img" data-ingredients="Cream · Parmesan · Garlic · Cracked pepper ·"><img src="assets/images/courtyard-food.jpg" alt="Chicken alfredo pasta" loading="lazy"></div><figcaption><span>Chicken Alfredo Pasta</span><span>৳ 675</span></figcaption></figure>
+          <figure class="plate"><div class="plate-img" data-ingredients="Pearl sugar · Butter · Ice cream · Syrup ·"><img src="assets/images/waffle.jpg" alt="Belgian waffles" loading="lazy"></div><figcaption><span>Belgian Waffle</span><span>৳ 375</span></figcaption></figure>
+          <a class="plate plate-more" href="menu.html"><span class="heading-5">See the<br>whole menu</span></a>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 6: CONCIERGE & RESERVATIONS -->
-    <section class="section-booking" id="reserve">
-      <div class="container">
-        <div class="booking-box">
-          <div>
-            <span class="tag-mono" style="color: var(--color-accent-gold);">CONCIERGE & BOOKINGS</span>
-            <h2 class="heading-lg" style="margin: 0.75rem 0 1.5rem;">
-              Reserve your <span class="serif-italic">table</span> or private exhibition.
-            </h2>
-            <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem;">
-              Whether planning a romantic dinner under the skylight, a family tasting banquet, or hosting a curated art event, our concierge ensures an unforgettable experience.
-            </p>
-
-            <div style="border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
-              <div>
-                <span class="tag-mono" style="color: rgba(255,255,255,0.5);">LOCATION</span>
-                <div style="font-size: 1rem;">Park Heights, Dhanmondi, Dhaka, Bangladesh</div>
-              </div>
-              <div>
-                <span class="tag-mono" style="color: rgba(255,255,255,0.5);">TELEPHONE</span>
-                <div style="font-size: 1rem; font-family: var(--font-mono); color: var(--color-accent-gold);">+88 0131 213 5588</div>
-              </div>
-              <div>
-                <span class="tag-mono" style="color: rgba(255,255,255,0.5);">HOURS</span>
-                <div style="font-size: 0.95rem;">Sun &ndash; Thu: 12:00 PM &ndash; 11:00 PM<br>Fri &ndash; Sat: 9:00 AM &ndash; 11:00 PM</div>
-              </div>
-            </div>
+    <!-- 5 · WHAT'S ON (Joakim's news slider) -->
+    <section class="section_slider_actualites" id="whats-on" data-theme="clay">
+      <div class="padding-global">
+        <div class="title-slider">
+          <div class="left-title-slider">Discover what's on<br>this week</div>
+          <h2 class="heading-6">What's on at<br>The Courtyard</h2>
+        </div>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <article class="swiper-slide news" data-cursor="Drag">
+              <div class="img-slider-item"><img loading="lazy" src="assets/images/artisanal-mocktail.jpg" alt="Mocktail"></div>
+              <p class="news-tag">Every day &middot; 4–6 PM</p>
+              <h3 class="news-title">Happy Hour: low prices, happy faces</h3>
+            </article>
+            <article class="swiper-slide news" data-cursor="Drag">
+              <div class="img-slider-item"><img loading="lazy" src="assets/images/artisan-coffee.jpg" alt="Latte art"></div>
+              <p class="news-tag">Fri &amp; Sat &middot; from 9 AM</p>
+              <h3 class="news-title">Breakfast under the skylight</h3>
+            </article>
+            <article class="swiper-slide news" data-cursor="Drag">
+              <div class="img-slider-item"><img loading="lazy" src="assets/images/kala-bhuna-beef.jpg" alt="Grilled meats"></div>
+              <p class="news-tag">Every evening &middot; from 5 PM</p>
+              <h3 class="news-title">The charcoal comes alive</h3>
+            </article>
+            <article class="swiper-slide news" data-cursor="Drag">
+              <div class="img-slider-item"><img loading="lazy" src="assets/images/courtyard-place-3.jpg" alt="The rock-garden patio"></div>
+              <p class="news-tag">The patio</p>
+              <h3 class="news-title">A sculpture garden you can sit in</h3>
+            </article>
+            <article class="swiper-slide news" data-cursor="Drag">
+              <div class="img-slider-item"><img loading="lazy" src="assets/images/courtyard guest.jpg" alt="A guest at The Courtyard"></div>
+              <p class="news-tag">Careers</p>
+              <h3 class="news-title">We're hiring for the kitchen &amp; the floor</h3>
+            </article>
           </div>
+        </div>
+        <div class="arrows-slider">
+          <button class="arrow-left" aria-label="Previous">&larr;</button>
+          <button class="arrow-right" aria-label="Next">&rarr;</button>
+        </div>
+      </div>
+    </section>
 
-          <!-- Reservation Form -->
-          <form id="reservation-form" class="booking-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="book-name">Full Name</label>
-                <input type="text" id="book-name" class="form-control" placeholder="e.g. Sarah Khan" required>
-              </div>
-              <div class="form-group">
-                <label for="book-phone">Phone Number</label>
-                <input type="tel" id="book-phone" class="form-control" placeholder="+880 1XXX XXXXXX" required>
-              </div>
-            </div>
+    <!-- 6 · RESERVE (Joakim voice: colour field, mono form, underline CTA) -->
+    <section class="section-booking" id="reserve" data-theme="sage">
+      <div class="padding-global booking-box">
+        <div class="booking-intro">
+          <h2 class="heading-1-scroll">Reserve a table.</h2>
+          <p class="text-brown-2">Tell us when, and we'll keep a seat under the glass. Every request is confirmed by phone within the hour, during opening hours.</p>
+          <div class="booking-facts text-brown-2">
+            <div><span>Where</span>Park Heights, Dhanmondi, Dhaka</div>
+            <div><span>Hours</span>Sun–Thu 12 PM–11 PM<br>Fri–Sat 9 AM–11 PM</div>
+            <div><span>Call</span><a href="tel:+8801312135588">+880 1312 135588</a></div>
+          </div>
+        </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="book-guests">Guests</label>
-                <select id="book-guests" class="form-control" required>
-                  <option value="1-2">1 to 2 Guests</option>
-                  <option value="3-4" selected>3 to 4 Guests</option>
-                  <option value="5-8">5 to 8 Guests</option>
-                  <option value="9+">Private Party (9+ Guests)</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="book-date">Date</label>
-                <input type="date" id="book-date" class="form-control" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="book-time">Preferred Time Slot</label>
-              <select id="book-time" class="form-control" required>
-                <option value="12:30 PM">12:30 PM (Lunch)</option>
-                <option value="02:00 PM">02:00 PM (Afternoon Tea)</option>
-                <option value="06:30 PM" selected>06:30 PM (Sunset Dinner)</option>
-                <option value="08:30 PM">08:30 PM (Prime Dinner)</option>
-                <option value="09:45 PM">09:45 PM (Late Evening)</option>
+        <form id="reservation-form" class="booking-form">
+          <div class="form-row">
+            <label class="form-group"><span>Name</span><input type="text" id="book-name" class="form-control" autocomplete="name" required></label>
+            <label class="form-group"><span>Phone</span><input type="tel" id="book-phone" class="form-control" autocomplete="tel" placeholder="01XXX XXXXXX" required></label>
+          </div>
+          <div class="form-row">
+            <label class="form-group"><span>Guests</span>
+              <select id="book-guests" class="form-control" required>
+                <option value="2">2 guests</option><option value="3">3 guests</option><option value="4" selected>4 guests</option>
+                <option value="5-8">5 to 8 guests</option><option value="9+">9 or more</option>
               </select>
+            </label>
+            <label class="form-group"><span>Date</span><input type="date" id="book-date" class="form-control" required></label>
+          </div>
+          <label class="form-group"><span>Time</span>
+            <select id="book-time" class="form-control" required>
+              <option value="9:30 AM">9:30 AM · Breakfast (Fri–Sat)</option>
+              <option value="1:00 PM">1:00 PM · Lunch</option>
+              <option value="4:30 PM">4:30 PM · Happy Hour</option>
+              <option value="7:30 PM" selected>7:30 PM · Dinner</option>
+              <option value="9:00 PM">9:00 PM · Late dinner</option>
+            </select>
+          </label>
+          <label class="form-group"><span>Anything we should know?</span><input type="text" id="book-notes" class="form-control" placeholder="The patio, a birthday cake, an allergy…"></label>
+          <button type="submit" class="cta-black booking-submit">
+            <div class="hover-text blue">
+              <span class="line top">Request this table &rarr;</span>
+              <span class="line bottom">Request this table &rarr;</span>
             </div>
-
-            <div class="form-group">
-              <label for="book-notes">Special Requests / Seating Preference</label>
-              <textarea id="book-notes" class="form-control" rows="3" placeholder="Patio seating, anniversary celebration, dietary allergies..."></textarea>
-            </div>
-
-            <button type="submit" class="btn-pill" style="background-color: var(--color-accent-gold); color: #12100E; border: none; padding: 1rem; width: 100%; margin-top: 0.5rem;">
-              <span>Confirm Reservation Request &rarr;</span>
-            </button>
-          </form>
-        </div>
+            <div class="subline blue"></div>
+          </button>
+        </form>
       </div>
     </section>
 
   </main>
 
-  <!-- SECTION 7: LUXURY FOOTER (Joakim Minimalist Architecture) -->
-  <footer class="footer">
+  <!-- FOOTER (Joakim: cream, mono, hand-drawn mark, ruled copyright) -->
+  <footer class="footer" data-theme="espresso">
     <div class="padding-global">
       <div class="bottom-footer">
-        
-        <!-- Left: Brand Description & Logo -->
         <div class="column-footer-description">
-          <div class="link-footer">
-            And what if your next dinner became a moment of rare exception? Whether you have a precise vision or simply the desire to experience elevated gastronomy and serene art under the skylight, The Courtyard accompanies you at every step.
-          </div>
-          <svg class="logo_footer" viewBox="0 0 260 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="50%" y="40" text-anchor="middle" font-family="'Great Vibes', cursive" font-size="44" fill="currentColor" letter-spacing="0.5">The Courtyard</text>
-          </svg>
+          <p class="link-footer">What if your afternoon turned into an evening? Whether you come with a plan or just an appetite, The Courtyard keeps a table for you under the glass.</p>
         </div>
-
-        <!-- Right: Multi-column Navigation -->
         <div class="div-block-23">
           <div class="column-footer">
-            <div class="column-footer-title">EXPLORE</div>
-            <a href="about.html" class="link-footer">The Sanctuary</a>
-            <a href="menu.html" class="link-footer">Culinary Catalog</a>
-            <a href="#breakdown" class="link-footer">Service Breakdown</a>
-            <a href="contact.html" class="link-footer">Private Dining</a>
+            <a href="about.html" class="link-footer">The place</a>
+            <a href="menu.html" class="link-footer">The menu</a>
+            <a href="#whats-on" class="link-footer">What's on</a>
+            <a href="https://thecourtyard.com.bd/career/" class="link-footer">Careers</a>
           </div>
           <div class="column-footer">
-            <div class="column-footer-title">CONNECT</div>
             <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener" class="link-footer">Instagram</a>
             <a href="https://www.facebook.com/TheCourtyardatParkHeights" target="_blank" rel="noopener" class="link-footer">Facebook</a>
-            <a href="contact.html" class="link-footer">Contact Concierge</a>
           </div>
           <div class="column-footer">
-            <div class="column-footer-title">LOCATION & HOURS</div>
-            <div class="link-footer" style="color: rgba(255,255,255,0.85);">PARK HEIGHTS, DHANMONDI</div>
-            <a href="tel:+8801312135588" class="link-footer">+88 0131 213 5588</a>
+            <span class="link-footer">Park Heights, Dhanmondi</span>
+            <a href="tel:+8801312135588" class="link-footer">+880 1312 135588</a>
             <a href="mailto:info@thecourtyard.com.bd" class="link-footer">info@thecourtyard.com.bd</a>
-            <a href="#reserve" class="link-footer" style="color: var(--color-accent-gold); margin-top: 0.5rem; text-decoration: underline;">RESERVE A TABLE &rarr;</a>
+          </div>
+          <div class="column-footer">
+            <a href="#reserve" class="link-footer">Reserve a table</a>
           </div>
         </div>
-
       </div>
-
-      <!-- Watermark Brand Title -->
-      <div class="footer-big-title">THE COURTYARD</div>
-
-      <!-- Copyright Bar -->
+      <div class="footer-signature" aria-hidden="true">The Courtyard</div>
       <div class="copyright">
-        <div class="item-copyright">Copyright &copy; 2026 The Courtyard at Park Heights.</div>
-        <div class="item-copyright"><a href="#">Legal Notice</a></div>
-        <div class="item-copyright"><a href="#">Data Protection Policy</a></div>
-        <div class="item-copyright"><a href="#">Curated in Dhaka, Bangladesh</a></div>
+        <div class="item-copyright">&copy; 2026 The Courtyard</div>
+        <div class="item-copyright"><a href="#">Legal notice</a></div>
+        <div class="item-copyright"><a href="#">Privacy</a></div>
+        <div class="item-copyright">Food &middot; Art &middot; Passion</div>
       </div>
     </div>
   </footer>
 
-  <!-- SCROLL TO TOP BUTTON -->
-  <button class="scrolltop" aria-label="Scroll to Top">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="12" y1="19" x2="12" y2="5"></line>
-      <polyline points="5 12 12 5 19 12"></polyline>
-    </svg>
+  <button class="scrolltop" aria-label="Scroll to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </button>
 
-  <!-- CONFIRMATION TOAST -->
-  <div class="booking-toast"></div>
+  <div class="booking-toast" role="status"></div>
 
-  <!-- Script Initializations -->
+  <script src="assets/js/lively.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/swiper-init.js"></script>
   <script src="assets/js/menu-drawer.js"></script>

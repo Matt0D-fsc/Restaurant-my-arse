@@ -14,82 +14,54 @@
   <!-- GSAP & Lenis CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@latest/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 </head>
 <body>
 
   <!-- FIXED NAVIGATION -->
   <header class="nav-wrapper nav-scrolled">
     <div class="nav-container">
-      <a href="index.html" class="nav-brand">
-        <img src="assets/images/courtyard-logo.png" alt="The Courtyard Logo" style="height: 38px; width: auto; filter: invert(0.15);">
-        <div>
-          <div class="nav-logo-text">The Courtyard</div>
-          <div class="nav-logo-sub">Park Heights &bull; Dhaka</div>
-        </div>
+      <div class="nav-left">
+        <a href="index.html#reserve" class="nav-reserve-link">Reserve a table</a>
+      </div>
+      <a href="index.html" class="nav-brand-center ring-logo" aria-label="The Courtyard at Park Heights, home">
+        <span class="ring-mark" aria-hidden="true"></span>
+        <span class="ring-text"><small>The</small>Courtyard<em>at Park Heights</em></span>
       </a>
-
-      <!-- Navigation Links with SplitText Character Hover -->
-      <nav class="nav-links-desktop">
-        <a href="index.html" class="hover-text">
-          <span class="top">Home</span>
-          <span class="bottom">Home</span>
-        </a>
-        <a href="about.html" class="hover-text">
-          <span class="top">The Story</span>
-          <span class="bottom">The Story</span>
-        </a>
-        <a href="menu.html" class="hover-text">
-          <span class="top">Culinary Menu</span>
-          <span class="bottom">Culinary Menu</span>
-        </a>
-        <a href="index.html#gallery" class="hover-text">
-          <span class="top">The Sanctuary</span>
-          <span class="bottom">The Sanctuary</span>
-        </a>
-        <a href="contact.html" class="hover-text" style="color: var(--color-accent-terracotta);">
-          <span class="top">Private Events</span>
-          <span class="bottom">Private Events</span>
-        </a>
-      </nav>
-
-      <div class="nav-actions">
-        <a href="#booking-section" class="btn-pill btn-pill-dark hide-mobile">
-          <span>Reserve Table</span>
-        </a>
-        <button class="burger-menu" aria-label="Open Navigation Menu">
-          <span class="burger-line"></span>
-          <span class="burger-line"></span>
-        </button>
+      <div class="nav-right">
+        <button class="nav-menu-plain" aria-label="Open navigation menu">Menu</button>
       </div>
     </div>
   </header>
 
   <!-- FULLSCREEN DYNAMIC MENU DRAWER -->
-  <div class="menu-fullscreen">
-    <div class="menu-bg-images">
-      <img src="assets/images/ambiance-patio.webp" alt="" class="menu-bg-img img-cover-base">
-      <img src="assets/images/patio-rock-garden.jpg" alt="" class="menu-bg-img img-cover-exp">
-      <img src="assets/images/culinary-detail.webp" alt="" class="menu-bg-img img-cover-menu">
-      <img src="assets/images/courtyard-skylight.jpg" alt="" class="menu-bg-img img-cover-gallery">
-      <img src="assets/images/table-service.webp" alt="" class="menu-bg-img img-cover-contact">
-    </div>
-    <div class="menu-bg-overlay"></div>
-
+  <!-- MENU OVERLAY (Joakim: flat colour, plain serif links; ours: the photo sits in a circle) -->
+  <div class="menu-fullscreen" aria-hidden="true">
     <div class="menu-fullscreen-content">
       <div class="menu-header">
-        <div class="menu-header-logo">The Courtyard</div>
-        <button class="burger-menu-close"><span>Close &times;</span></button>
+        <a href="index.html#reserve" class="nav-reserve-link" data-close>Reserve a table</a>
+        <a href="index.html" class="ring-logo" aria-label="Home">
+          <span class="ring-mark" aria-hidden="true"></span>
+          <span class="ring-text"><small>The</small>Courtyard<em>at Park Heights</em></span>
+        </a>
+        <button class="burger-menu-close">Close</button>
       </div>
-      <div class="menu-nav-links">
-        <a href="about.html" class="menu-nav-item menu-link-exp"><span class="menu-nav-num">01</span><span class="menu-nav-title">The Sanctuary & Patio</span></a>
-        <a href="menu.html" class="menu-nav-item menu-link-menu"><span class="menu-nav-num">02</span><span class="menu-nav-title">Culinary Catalog</span></a>
-        <a href="index.html#gallery" class="menu-nav-item menu-link-gallery"><span class="menu-nav-num">03</span><span class="menu-nav-title">Art Gallery & Architecture</span></a>
-        <a href="contact.html" class="menu-nav-item menu-link-contact"><span class="menu-nav-num">04</span><span class="menu-nav-title">Reservations & Concierge</span></a>
-      </div>
-      <div class="menu-footer">
-        <div>Park Heights, Dhanmondi, Dhaka, Bangladesh</div>
-        <div>Phone: +88 0131 213 5588 | info@thecourtyard.com.bd</div>
+
+      <div class="menu-body">
+        <nav class="menu-nav-links" aria-label="Main">
+          <a href="about.html" class="menu-nav-item" data-bg="#BFC5AF" data-img="assets/images/courtyard-place-3.jpg">The Place</a>
+          <a href="menu.html" class="menu-nav-item" data-bg="#E7D3C1" data-img="assets/images/courtyaard food.webp">The Menu</a>
+          <a href="index.html#whats-on" class="menu-nav-item" data-bg="#D8E1EB" data-img="assets/images/artisanal-mocktail.jpg" data-close>What's On</a>
+          <a href="contact.html" class="menu-nav-item" data-bg="#EAE2DF" data-img="assets/images/courtyard.jpg">Contact</a>
+        </nav>
+        <div class="menu-aside">
+          <div class="menu-contact">
+            <a href="tel:+8801312135588">+880 1312 135588</a>
+            <a href="mailto:info@thecourtyard.com.bd">info@thecourtyard.com.bd</a>
+            <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <div class="menu-circle"><img src="assets/images/courtyard-skylight.jpg" alt="" data-menu-img></div>
+        </div>
       </div>
     </div>
   </div>
@@ -183,43 +155,38 @@
 
   <!-- LUXURY FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <h3 class="heading-md">The Courtyard</h3>
-          <p style="margin-top: 0.75rem; color: rgba(255,255,255,0.6); max-width: 320px; font-size: 0.9rem;">
-            Park Heights, Dhanmondi, Dhaka. Food, Art & Passion in natural harmony.
-          </p>
+    <div class="padding-global">
+      <div class="bottom-footer">
+        <div class="column-footer-description">
+          <p class="link-footer">What if your afternoon turned into an evening? Whether you come with a plan or just an appetite, The Courtyard keeps a table for you under the glass.</p>
         </div>
-        <div>
-          <span class="tag-mono" style="color: var(--color-accent-gold);">EXPLORE</span>
-          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem;">
-            <li><a href="index.html">Home Experience</a></li>
-            <li><a href="about.html">Story & Architecture</a></li>
-            <li><a href="menu.html">Culinary Menu</a></li>
-            <li><a href="contact.html">Private Events</a></li>
-          </ul>
-        </div>
-        <div>
-          <span class="tag-mono" style="color: var(--color-accent-gold);">BOOKINGS</span>
-          <ul style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; font-family: var(--font-mono);">
-            <li>+88 0131 213 5588</li>
-            <li>info@thecourtyard.com.bd</li>
-          </ul>
-        </div>
-        <div>
-          <span class="tag-mono" style="color: var(--color-accent-gold);">OPENING HOURS</span>
-          <div style="margin-top: 1rem; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.7);">
-            <div>Sun &ndash; Thu: 12:00 PM &ndash; 11:00 PM</div>
-            <div>Fri &ndash; Sat: 09:00 AM &ndash; 11:00 PM</div>
+        <div class="div-block-23">
+          <div class="column-footer">
+            <a href="about.html" class="link-footer">The place</a>
+            <a href="menu.html" class="link-footer">The menu</a>
+            <a href="index.html#whats-on" class="link-footer">What's on</a>
+            <a href="https://thecourtyard.com.bd/career/" class="link-footer">Careers</a>
+          </div>
+          <div class="column-footer">
+            <a href="https://www.instagram.com/thecourtyardatparkheights" target="_blank" rel="noopener" class="link-footer">Instagram</a>
+            <a href="https://www.facebook.com/TheCourtyardatParkHeights" target="_blank" rel="noopener" class="link-footer">Facebook</a>
+          </div>
+          <div class="column-footer">
+            <span class="link-footer">Park Heights, Dhanmondi</span>
+            <a href="tel:+8801312135588" class="link-footer">+880 1312 135588</a>
+            <a href="mailto:info@thecourtyard.com.bd" class="link-footer">info@thecourtyard.com.bd</a>
+          </div>
+          <div class="column-footer">
+            <a href="index.html#reserve" class="link-footer">Reserve a table</a>
           </div>
         </div>
       </div>
-
-      <div class="footer-big-title">THE COURTYARD</div>
-      <div class="footer-bottom">
-        <div>&copy; 2026 The Courtyard at Park Heights. All Rights Reserved.</div>
-        <div>Dhanmondi, Dhaka, Bangladesh</div>
+      <div class="footer-signature" aria-hidden="true">The Courtyard</div>
+      <div class="copyright">
+        <div class="item-copyright">&copy; 2026 The Courtyard</div>
+        <div class="item-copyright"><a href="index.html#">Legal notice</a></div>
+        <div class="item-copyright"><a href="index.html#">Privacy</a></div>
+        <div class="item-copyright">Food &middot; Art &middot; Passion</div>
       </div>
     </div>
   </footer>

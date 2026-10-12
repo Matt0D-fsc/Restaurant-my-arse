@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+    window.lenis = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -57,10 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: "power4.inOut",
             onComplete: () => {
               document.body.classList.remove('no-scroll');
-              initHeroAnimations();
-              initSection2PinnedScroll();
-              initSection3Animations();
-              initBreakdownAnimations();
+              initPage();
             }
           });
         }, 350);
@@ -69,10 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 60);
   } else {
+    initPage();
+  }
+
+  // Top-to-bottom order matters: each ScrollTrigger measures after the pins above it exist.
+  function initPage() {
     initHeroAnimations();
     initSection2PinnedScroll();
     initSection3Animations();
-    initBreakdownAnimations();
+    initArches();
+    initDayDial();
+    initPlates();
+    if (window.courtyardLively) window.courtyardLively();
   }
 
   // =========================================================================
@@ -243,28 +249,80 @@ document.addEventListener('DOMContentLoaded', () => {
       1.1
     );
 
-    // 6. Center CTA: Fade up & Underline drawing
-    heroTl.fromTo(".hero-cta-box",
-      { y: 25, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" },
-      1.4
-    );
-
-    heroTl.to(".hero-cta-underline", {
-      width: "100%",
-      duration: 1.1,
-      ease: "power2.inOut"
-    }, 1.5);
-
-    // Image Zoom Effect Init
+    initHeroRing();
     initScrollZoomImages();
+  }
+
+  // Scrolling past the hero closes the photo into the Courtyard's ring, plates are
+  // set around it like a table, then one plate travels down to become section 2's image.
+  // `heroProgress` + `s2Docked` decide when the travelling plate is the one on screen.
+  let heroProgress = 0, s2Docked = false;
+  const traveller = document.querySelector('[data-traveller]');
+  function syncTraveller() {
+    if (!traveller) return;
+    const flying = isDesktop() && heroProgress > 0.5 && !s2Docked;
+    traveller.classList.toggle('is-flying', flying);
+    const s1Img = document.querySelector('.section_2_home .section-1 .img-scroll');
+    if (s1Img && isDesktop()) s1Img.style.opacity = s2Docked ? '1' : '0';
+  }
+
+  function initHeroRing() {
+    const hero = document.querySelector('[data-hero]');
+    const frame = document.querySelector('[data-hero-frame]');
+    const ring = document.querySelector('[data-hero-ring]');
+    if (!hero || !frame || !ring || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const inner = () => {                       // the ring's open centre, measured from its SVG box
+      const w = ring.offsetWidth, h = w * 820 / 1160;
+      return `ellipse(${w * 0.41}px ${h * 0.37}px at 50% 50%)`;
+    };
+    const full = () => `ellipse(${innerWidth}px ${innerHeight}px at 50% 50%)`;
+    // Where section 2's first image will sit once its stage is pinned
+    const dock = () => {
+      const img = document.querySelector('.section_2_home .section-1 .img-scroll');
+      const wrap = document.querySelector('.section_2_home .scroll-wrapper');
+      if (!img || !wrap) return { x: innerWidth / 2, y: innerHeight / 2, s: 260 };
+      const r = img.getBoundingClientRect(), w = wrap.getBoundingClientRect();
+      return { x: r.left - w.left, y: r.top - w.top, s: r.width };
+    };
+    const settings = gsap.utils.toArray('.setting');
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: hero, start: 'top top', end: '+=190%', pin: true, scrub: 1, invalidateOnRefresh: true,
+        onUpdate: self => { heroProgress = self.progress; hero.classList.toggle('is-ring', self.progress > .35); syncTraveller(); },
+      },
+      defaults: { ease: 'none' },
+    });
+
+    // 1 · the photo closes into the ring
+    tl.fromTo(frame, { clipPath: full }, { clipPath: inner, duration: 1, ease: 'power2.inOut' }, 0)
+      .fromTo('.hero-bg-img', { scale: 1.12 }, { scale: 1, duration: 1 }, 0)
+      .to('.hero-bg-overlay', { opacity: 0, duration: .6 }, .3)
+      .to('[data-hero-copy]', { opacity: 0, y: -40, duration: .35 }, 0)
+      .fromTo(ring, { opacity: 0, scale: .82, rotation: -10 }, { opacity: 1, scale: 1, rotation: 0, duration: .45, ease: 'power2.out' }, .6);
+
+    if (!isDesktop()) return;
+    // 2 · plates are set around it, the travelling plate among them
+    tl.fromTo(settings, { opacity: 0, scale: .2, rotation: -120 }, { opacity: 1, scale: 1, rotation: 0, duration: .4, stagger: .07, ease: 'back.out(1.6)' }, .6);
+    if (traveller) {
+      tl.fromTo(traveller,
+        { x: () => innerWidth * .8 - 70, y: () => innerHeight * .7 - 70, width: 140, height: 140, opacity: 0, rotation: -90 },
+        { opacity: 1, rotation: 0, duration: .4, ease: 'back.out(1.6)' }, .78);
+    }
+    // 3 · the table clears: settings and ring leave, the travelling plate glides to its dock
+    tl.to(settings, { opacity: 0, scale: .5, duration: .35, stagger: .04, ease: 'power2.in' }, 1.35)
+      .to([ring, frame], { opacity: 0, scale: .9, duration: .4, ease: 'power2.in' }, 1.4);
+    if (traveller) {
+      tl.to(traveller, { x: () => dock().x, y: () => dock().y, width: () => dock().s, height: () => dock().s, rotation: 360, duration: .6, ease: 'power2.inOut' }, 1.35);
+    }
   }
 
   // =========================================================================
   // 6. SECTION 2: DUAL-STAGE PINNED SCROLL TRANSITION (Joakim 1:1)
   // =========================================================================
   let s1TitleLines, s2TitleLines;
-  let introTl, scrollTriggerInstance;
+  let introTl, scrollTriggerInstance, dockTrigger;
   let isSection2Active = false;
   let currentAnimation = null;
   let hasIntroPlayed = false;
@@ -380,17 +438,28 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.set(s2TitleLines, { y: 60 });
     gsap.set(s2TextBottom, { opacity: 0, y: 15 });
     gsap.set(s2Image, { 
-      clipPath: "inset(100% 0% 0% 0%)",
+      clipPath: "circle(0% at 50% 50%)",
       opacity: 1 
     });
 
     // Section 1 initial state (hidden for entrance reveal)
     gsap.set(s1TitleLines, { y: 120 });
     gsap.set(s1Image, { 
-      clipPath: "inset(100% 0% 0% 0%)",
+      clipPath: "circle(0% at 50% 50%)",
       opacity: 1 
     });
     gsap.set(s1TextBottom, { opacity: 0, y: 30 });
+
+    // The travelling plate hands over to this image once the stage is pinned
+    if (traveller) {
+      gsap.set(s1Image, { clipPath: "circle(50% at 50% 50%)" });
+      dockTrigger = ScrollTrigger.create({
+        trigger: scrollContainer, start: "top top",
+        onEnter: () => { s2Docked = true; syncTraveller(); },
+        onLeaveBack: () => { s2Docked = false; syncTraveller(); },
+      });
+      syncTraveller();
+    }
 
     // Initial entrance animation when Section 2 scrolls into view
     introTl = gsap.timeline({
@@ -409,9 +478,9 @@ document.addEventListener('DOMContentLoaded', () => {
       ease: "power3.out"
     }, 0);
 
-    // 2. Image - mask reveals top to bottom
-    introTl.to(s1Image, {
-      clipPath: "inset(0% 0% 0% 0%)",
+    // 2. Image - circle reveal (skipped when the travelling plate brings it)
+    if (!traveller) introTl.to(s1Image, {
+      clipPath: "circle(50% at 50% 50%)",
       duration: 0.85,
       ease: "power3.out"
     }, 0.25);
@@ -453,7 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 0);
 
       tl.to(s1Image, {
-        clipPath: "inset(0% 0% 100% 0%)",
+        clipPath: "circle(0% at 50% 50%)",
         duration: 0.5,
         ease: "power2.inOut"
       }, 0.15);
@@ -470,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Section 2 Appearance
       tl.to(s2Image, {
-        clipPath: "inset(0% 0% 0% 0%)",
+        clipPath: "circle(50% at 50% 50%)",
         duration: 0.55,
         ease: "power2.out"
       }, 0.45);
@@ -522,7 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 0.1);
 
       tl.to(s2Image, {
-        clipPath: "inset(100% 0% 0% 0%)",
+        clipPath: "circle(0% at 50% 50%)",
         duration: 0.5,
         ease: "power2.inOut"
       }, 0.1);
@@ -541,9 +610,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 0.4);
 
       tl.fromTo(s1Image, 
-        { clipPath: "inset(100% 0% 0% 0%)" },
+        { clipPath: "circle(0% at 50% 50%)" },
         { 
-          clipPath: "inset(0% 0% 0% 0%)",
+          clipPath: "circle(50% at 50% 50%)",
           duration: 0.5,
           ease: "power2.out"
         }, 0.45);
@@ -563,6 +632,9 @@ document.addEventListener('DOMContentLoaded', () => {
       end: "bottom bottom",
       onUpdate: (self) => {
         if (self.progress > 0.5) {
+          // A quick downward scroll can pass the handoff before the intro ends.
+          // Finish that entrance so the circle and colour transition can start.
+          if (!hasIntroPlayed) introTl.progress(1);
           animateToSection2();
         } else {
           animateToSection1();
@@ -655,48 +727,98 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 8. SECTION 4: SERVICE BREAKDOWN STAGGER ANIMATIONS
+  // 8. PLATES: a horizontal run of circles, each turning like a plate
   // =========================================================================
-  function initBreakdownAnimations() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-    gsap.from(".breakdown-header > *", {
+  function initPlates() {
+    const track = document.querySelector('[data-plates]');
+    if (!track || !isDesktop() || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const distance = () => track.scrollWidth - innerWidth;
+    const lean = gsap.quickTo(track.querySelectorAll('.plate'), 'skewX', { duration: .5, ease: 'power3' });
+    let settle;
+    gsap.timeline({
       scrollTrigger: {
-        trigger: ".section_service_breakdown",
-        start: "top 80%",
-        toggleActions: "play none none reverse"
+        trigger: '.section_plates', start: 'top top', end: () => '+=' + distance(), pin: true, scrub: 1, invalidateOnRefresh: true,
+        onUpdate: self => {                    // lean into the motion, settle when it stops
+          lean(gsap.utils.clamp(-10, 10, self.getVelocity() / -220));
+          clearTimeout(settle); settle = setTimeout(() => lean(0), 140);
+        },
       },
-      y: 35,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.15,
-      ease: "power3.out"
+      defaults: { ease: 'none' },
+    })
+      .to(track, { x: () => -distance() }, 0)
+      .fromTo(track.querySelectorAll('.plate-img img'), { rotation: -35 }, { rotation: 35 }, 0);
+  }
+
+  // Section 3: a ring-shaped clock fills the empty half. As you scroll the hand sweeps
+  // 9 AM → 11 PM, each line of the list lights at its hour, and the dial slides across
+  // to the other empty half when the second block arrives.
+  function initDayDial() {
+    const dial = document.querySelector('[data-dial]');
+    if (!dial || !isDesktop()) return;
+    const inner = dial.closest('.sec3-inner');
+    const first = inner.querySelector('.right-img-sec-3-wrapper');
+    const second = inner.querySelector('.left-img-sec-3-wrapper');
+    const hand = dial.querySelector('[data-dial-hand]');
+    const readTime = dial.querySelector('[data-dial-time]');
+    const readEvent = dial.querySelector('[data-dial-event]');
+    const lines = [...inner.querySelectorAll('.hour-line')];
+    const EVENTS = [[9, 'Breakfast'], [12, 'Coffee'], [16, 'Happy hour'], [17, 'Kebabs'], [22.5, 'Last orders']];
+    const NS = 'http://www.w3.org/2000/svg';
+    const angle = h => (h % 12) / 12 * 360;
+    const polar = (deg, r) => [Math.sin(deg * Math.PI / 180) * r, -Math.cos(deg * Math.PI / 180) * r];
+    const svgEl = (tag, attrs) => { const el = document.createElementNS(NS, tag); for (const k in attrs) el.setAttribute(k, attrs[k]); return el; };
+
+    const ticks = dial.querySelector('.dial-ticks');
+    for (let i = 0; i < 60; i++) {
+      const [x1, y1] = polar(i * 6, 168), [x2, y2] = polar(i * 6, i % 5 ? 162 : 154);
+      ticks.append(svgEl('line', { x1, y1, x2, y2, opacity: i % 5 ? .35 : 1 }));
+    }
+    const events = dial.querySelector('.dial-events');
+    const marks = EVENTS.map(([h, name]) => {
+      const a = angle(h), [cx, cy] = polar(a, 168), [tx, ty] = polar(a, 188);
+      const dot = svgEl('circle', { cx, cy, r: 4 });
+      const t = svgEl('text', { x: tx, y: ty + 3, 'text-anchor': Math.abs(tx) < 20 ? 'middle' : tx > 0 ? 'start' : 'end' });
+      t.textContent = name;
+      events.append(dot, t);
+      return { h, name, els: [dot, t] };
     });
+    const fmt = h => { const hh = Math.floor(h), mm = Math.floor((h % 1) * 60 / 5) * 5; return `${((hh + 11) % 12) + 1}:${String(mm).padStart(2, '0')} ${hh < 12 ? 'AM' : 'PM'}`; };
 
-    gsap.from(".breakdown-col", {
-      scrollTrigger: {
-        trigger: ".breakdown-grid",
-        start: "top 80%",
-        toggleActions: "play none none reverse"
-      },
-      y: 40,
-      opacity: 0,
-      duration: 1.1,
-      stagger: 0.15,
-      ease: "power3.out"
-    });
+    dial.style.top = first.offsetTop + 'px';
+    const state = { h: 9 };
+    const render = () => {
+      const h = state.h;
+      hand.setAttribute('transform', `rotate(${270 + (h - 9) * 30})`);
+      readTime.textContent = fmt(h);
+      const current = [...marks].reverse().find(m => m.h <= h) || marks[0];
+      readEvent.textContent = current.name;
+      marks.forEach(m => m.els.forEach(el => el.classList.toggle('is-now', m === current)));
+      lines.forEach((line, i) => {
+        const at = +line.dataset.at, next = lines[i + 1] ? +lines[i + 1].dataset.at : 24;
+        line.classList.toggle('is-now', h >= at && h < next);
+      });
+    };
+    render();
 
-    // Booking box reveal
-    gsap.from(".booking-box", {
+    const slide = () => inner.clientWidth - dial.offsetWidth - 2 * dial.offsetLeft;
+    gsap.timeline({
       scrollTrigger: {
-        trigger: ".section-booking",
-        start: "top 80%",
-        toggleActions: "play none none reverse"
+        trigger: first, start: 'top 18%', endTrigger: second, end: 'bottom 80%',
+        pin: dial, pinSpacing: false, scrub: 1, invalidateOnRefresh: true,
       },
-      y: 40,
-      opacity: 0,
-      duration: 1.2,
-      ease: "power3.out"
+      defaults: { ease: 'none' },
+    })
+      .to(state, { h: 23, duration: 1, onUpdate: render }, 0)
+      .to(dial, { x: slide, duration: .22, ease: 'power2.inOut' }, .3);
+  }
+
+  // Section 3: arches rise into place, like the roof's curve being drawn up
+  function initArches() {
+    gsap.utils.toArray('[data-arch]').forEach(el => {
+      gsap.fromTo(el, { clipPath: 'inset(100% 0% 0% 0%)' }, {
+        clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'power3.inOut',
+        scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none reverse' },
+      });
     });
   }
 
@@ -760,6 +882,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (introTl) {
         introTl.kill();
         introTl = null;
+      }
+      if (dockTrigger) {
+        dockTrigger.kill();
+        dockTrigger = null;
       }
       isSection2Active = false;
       hasIntroPlayed = false;
